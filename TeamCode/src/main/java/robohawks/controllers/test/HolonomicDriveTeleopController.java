@@ -10,7 +10,7 @@ import robohawks.controllers.old.TeleopController;
 import robohawks.modules.base.HolonomicDriveModule;
 
 
-@TeleOp(name="HolonomicTeleop", group ="Teleop")
+@TeleOp(name="HolonomicTeleopTest", group ="Teleop")
 public class HolonomicDriveTeleopController extends TeleopController implements ErrorHandler{
 
     HolonomicDriveModule holonomicDriveModule;
