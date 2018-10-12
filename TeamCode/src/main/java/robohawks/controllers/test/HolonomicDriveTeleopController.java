@@ -10,7 +10,6 @@ import robohawks.controllers.old.TeleopController;
 import robohawks.modules.base.HolonomicDriveModule;
 
 
-@TeleOp(name="HolonomicTeleopTest", group ="Teleop")
 public class HolonomicDriveTeleopController extends TeleopController implements ErrorHandler{
 
     HolonomicDriveModule holonomicDriveModule;
@@ -46,9 +45,9 @@ public class HolonomicDriveTeleopController extends TeleopController implements 
         BackRight = Range.clip(BackRight, -1, 1);
 
         // write the values to the motors
-        holonomicDriveModule.setPowerTwo(FrontRight/2);
-        holonomicDriveModule.setPowerOne(FrontLeft/2);
-        holonomicDriveModule.setPowerThree(BackLeft/2);
+        holonomicDriveModule.setPowerOne(FrontRight/2);
+        holonomicDriveModule.setPowerTwo(-FrontLeft/2);
+        holonomicDriveModule.setPowerThree(-BackLeft/2);
         holonomicDriveModule.setPowerFour(BackRight/2);
     }
 

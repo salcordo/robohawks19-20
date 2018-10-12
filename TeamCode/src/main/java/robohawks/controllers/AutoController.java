@@ -1,112 +1,101 @@
-package robohawks.controllers.old;
+package robohawks.controllers;
 
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
-import com.qualcomm.robotcore.hardware.DcMotor;
-import com.qualcomm.robotcore.hardware.Servo;
 import com.qualcomm.robotcore.util.ElapsedTime;
-
-import org.firstinspires.ftc.robotcore.external.Telemetry;
 
 import robohawks.modules.base.HolonomicDriveModule;
 
-/**
- * Created by Paarth Tandon on 2/1/2018.
- */
-
-public class ContestAutoControllerv2Alt extends LinearOpMode{
+@Autonomous(name="Autonomous")
+public class AutoController extends LinearOpMode {
 
     private ElapsedTime runtime = new ElapsedTime();
     private HolonomicDriveModule drive;
-    private DcMotor leftarm;
-    private DcMotor rightarm;
-    private Servo jewl;
 
     @Override
-    public void runOpMode() throws InterruptedException{
+    public void runOpMode() throws InterruptedException {
+        /* INIT */
         drive = new HolonomicDriveModule(hardwareMap);
-        leftarm = hardwareMap.dcMotor.get("leftarm");
-        rightarm = hardwareMap.dcMotor.get("rightarm");
-        jewl = hardwareMap.servo.get("jewl");
 
         waitForStart();
 
-        jewl.setPosition(0);
-        sleep(1000);
+        /* SEQUENCE */
 
-        // Forward
+        //backwards
         drive.setPowerOne(-1);
-        drive.setPowerTwo(1);
-        drive.setPowerThree(1);
-        drive.setPowerFour(-1);
-
-        sleep(500);
-
-        drive.setPowerOne(0);
-        drive.setPowerTwo(0);
-        drive.setPowerThree(0);
-        drive.setPowerFour(0);
-        // Forward End
-
-        jewl.setPosition(1);
-        sleep(1000);
-
-        // Forward
-        drive.setPowerOne(-1);
-        drive.setPowerTwo(1);
-        drive.setPowerThree(1);
-        drive.setPowerFour(-1);
-
-        sleep(500);
-
-        drive.setPowerOne(0);
-        drive.setPowerTwo(0);
-        drive.setPowerThree(0);
-        drive.setPowerFour(0);
-        // Forward End
-
-        sleep(1000);
-
-        // Turn Right
-        drive.setPowerOne(1);
-        drive.setPowerTwo(1);
-        drive.setPowerThree(1);
-        drive.setPowerFour(1);
-
-        sleep(750);
-
-        drive.setPowerOne(0);
-        drive.setPowerTwo(0);
-        drive.setPowerThree(0);
-        drive.setPowerFour(0);
-        // Turn End
-
-        sleep(1000);
-
-        // Back
-        drive.setPowerOne(1);
         drive.setPowerTwo(-1);
         drive.setPowerThree(-1);
-        drive.setPowerFour(1);
+        drive.setPowerFour(-1);
+        sleep(1500);
 
-        sleep(500);
-
+        //stop
         drive.setPowerOne(0);
         drive.setPowerTwo(0);
         drive.setPowerThree(0);
         drive.setPowerFour(0);
-        // Back End
-
         sleep(1000);
 
-        // Drop
-        leftarm.setPower(.5);
-        rightarm.setPower(.5);
+        //clockwise
+        drive.setPowerOne(-1);
+        drive.setPowerTwo(1);
+        drive.setPowerThree(1);
+        drive.setPowerFour(-1);
+        sleep(1000);
 
+        //stop
+        drive.setPowerOne(0);
+        drive.setPowerTwo(0);
+        drive.setPowerThree(0);
+        drive.setPowerFour(0);
+        sleep(1000);
+
+        //forward
+        drive.setPowerOne(1);
+        drive.setPowerTwo(1);
+        drive.setPowerThree(1);
+        drive.setPowerFour(1);
+        sleep(1000);
+
+        //stop
+        drive.setPowerOne(0);
+        drive.setPowerTwo(0);
+        drive.setPowerThree(0);
+        drive.setPowerFour(0);
+        sleep(1000);
+
+        //clockwise
+        drive.setPowerOne(-1);
+        drive.setPowerTwo(1);
+        drive.setPowerThree(1);
+        drive.setPowerFour(-1);
+        sleep(1000);
+
+        //stop
+        drive.setPowerOne(0);
+        drive.setPowerTwo(0);
+        drive.setPowerThree(0);
+        drive.setPowerFour(0);
+        sleep(1000);
+
+        //forward
+        drive.setPowerOne(1);
+        drive.setPowerTwo(1);
+        drive.setPowerThree(1);
+        drive.setPowerFour(1);
+        sleep(3000);
+
+        //stop
+        drive.setPowerOne(0);
+        drive.setPowerTwo(0);
+        drive.setPowerThree(0);
+        drive.setPowerFour(0);
+        sleep(1000);
+
+        //backwards
+        drive.setPowerOne(-1);
+        drive.setPowerTwo(-1);
+        drive.setPowerThree(-1);
+        drive.setPowerFour(-1);
         sleep(5000);
-
-        leftarm.setPower(0);
-        rightarm.setPower(0);
-        // Drop End
     }
 }

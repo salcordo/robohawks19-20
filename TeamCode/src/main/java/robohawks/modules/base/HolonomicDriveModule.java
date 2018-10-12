@@ -18,10 +18,10 @@ public class HolonomicDriveModule {
     private boolean locked;
 
     public HolonomicDriveModule(HardwareMap hardwareMap){
-        motor_1 = hardwareMap.dcMotor.get("motor_1");
-        motor_2 = hardwareMap.dcMotor.get("motor_2");
-        motor_3 = hardwareMap.dcMotor.get("motor_3");
-        motor_4 = hardwareMap.dcMotor.get("motor_4");
+        motor_1 = hardwareMap.dcMotor.get("m1");
+        motor_2 = hardwareMap.dcMotor.get("m2");
+        motor_3 = hardwareMap.dcMotor.get("m3");
+        motor_4 = hardwareMap.dcMotor.get("m4");
     }
 
     public void setPowerOne(double power) { motor_1.setPower(power); }

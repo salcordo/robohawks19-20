@@ -5,7 +5,7 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 
 import robohawks.modules.base.HolonomicDriveModule;
 
-@TeleOp(name = "ContestTeleopController", group = "Teleop")
+
 public class ContestTeleOpController extends Controller{
 
     HolonomicDriveModule drive;

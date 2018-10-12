@@ -12,7 +12,6 @@ import robohawks.modules.base.HolonomicDriveModule;
  * Created by Paarth Tandon on 2/1/2018.
  */
 
-@Autonomous(name = "ContestAutonomousController")
 public class ContestAutoControllerv2 extends LinearOpMode {
 
     private ElapsedTime runtime = new ElapsedTime();
