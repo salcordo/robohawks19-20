@@ -12,11 +12,15 @@ public class TeleopController extends Controller {
 
     HolonomicDriveModule drive;
     DcMotor liftArm;
+    DcMotor mineralArm;
+    DcMotor mineralSpool;
 
     @Override
     public void init() {
         drive = new HolonomicDriveModule(hardwareMap);
         liftArm = hardwareMap.dcMotor.get("liftArm");
+        mineralArm = hardwareMap.dcMotor.get("mineralArm");
+        mineralSpool = hardwareMap.dcMotor.get("mineralSpool");
     }
 
     @Override
@@ -54,6 +58,32 @@ public class TeleopController extends Controller {
         }
 
         if (gamepad1.dpad_up){
+            liftArm.setPower(-1);
+        } else {
+            liftArm.setPower(0);
+        }
+
+        // MINERAL ARM
+        if (gamepad1.x){
+            mineralArm.setPower(1);
+        } else {
+            mineralArm.setPower(0);
+        }
+
+        if (gamepad1.a){
+            mineralArm.setPower(-1);
+        } else {
+            mineralArm.setPower(0);
+        }
+
+        // MINERAL SPOOL
+        if (gamepad1.b){
+            mineralSpool.setPower(1);
+        } else {
+            liftArm.setPower(0);
+        }
+
+        if (gamepad1.y){
             liftArm.setPower(-1);
         } else {
             liftArm.setPower(0);
