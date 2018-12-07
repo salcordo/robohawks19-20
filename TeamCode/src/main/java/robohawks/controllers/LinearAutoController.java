@@ -5,16 +5,29 @@ import com.disnodeteam.dogecv.DogeCV;
 import com.disnodeteam.dogecv.detectors.roverrukus.GoldAlignDetector;
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
+import com.qualcomm.robotcore.hardware.DcMotor;
+import com.qualcomm.robotcore.util.ElapsedTime;
+
+import robohawks.modules.base.HolonomicDriveModule;
 
 @Autonomous(name="Autonomous")
 public class LinearAutoController extends LinearOpMode {
 
     private GoldAlignDetector detector;
+    HolonomicDriveModule drive;
+    DcMotor liftArm;
+    DcMotor liftArm2;
+    ElapsedTime time;
 
     @Override
     public void runOpMode() throws InterruptedException {
 
-        telemetry.addData("Status", "DogeCV 2018.0 - Gold Align Example");
+        //**********INIT START**********//
+
+        drive = new HolonomicDriveModule(hardwareMap);
+        liftArm = hardwareMap.dcMotor.get("liftArm");
+        liftArm2 = hardwareMap.dcMotor.get("liftArm2");
+        time = new ElapsedTime();
 
         // Set up detector
         detector = new GoldAlignDetector(); // Create detector
@@ -35,21 +48,152 @@ public class LinearAutoController extends LinearOpMode {
 
         detector.enable(); // Start the detector!
 
-        waitForStart();
-
         telemetry.addData("IsAligned", detector.getAligned()); // Is the bot aligned with the gold mineral?
         telemetry.addData("X Pos", detector.getXPosition()); // Gold X position.
 
-        double position = detector.getXPosition();
-        if (position == 0){
-            System.out.println("++++++++++++++++++++++++++++++++++++++++++++NONE");
-        }else if (position > 240){
-            System.out.println("++++++++++++++++++++++++++++++++++++++++++++RIGHT");
-        } else {
-            System.out.println("++++++++++++++++++++++++++++++++++++++++++++Left");
+        waitForStart();
+
+        //**********INIT STOP**********//
+
+        //**********DROP START**********//
+
+        //DROP
+        liftArm.setPower(-1);
+        liftArm2.setPower(1);
+        sleep(4000);
+        liftArm.setPower(0);
+        liftArm2.setPower(0);
+
+        //CLOCKWISE
+        drive.setPowerOne(-1);
+        drive.setPowerTwo(1);
+        drive.setPowerThree(1);
+        drive.setPowerFour(-1);
+        sleep(300);
+        drive.setPowerOne(0);
+        drive.setPowerTwo(0);
+        drive.setPowerThree(0);
+        drive.setPowerFour(0);
+        sleep(500);
+
+        //BACK
+        drive.setPowerOne(-1);
+        drive.setPowerTwo(-1);
+        drive.setPowerThree(-1);
+        drive.setPowerFour(-1);
+        sleep(100);
+        drive.setPowerOne(0);
+        drive.setPowerTwo(0);
+        drive.setPowerThree(0);
+        drive.setPowerFour(0);
+        sleep(500);
+
+        //COUNTER CLOCKWISE
+        drive.setPowerOne(1);
+        drive.setPowerTwo(-1);
+        drive.setPowerThree(-1);
+        drive.setPowerFour(1);
+        sleep(300);
+        drive.setPowerOne(0);
+        drive.setPowerTwo(0);
+        drive.setPowerThree(0);
+        drive.setPowerFour(0);
+        sleep(500);
+
+        //**********DROP STOP**********//
+
+        //**********MINERAL TAP START**********//
+
+        //BACK
+        drive.setPowerOne(-1);
+        drive.setPowerTwo(-1);
+        drive.setPowerThree(-1);
+        drive.setPowerFour(-1);
+        sleep(150);
+        drive.setPowerOne(0);
+        drive.setPowerTwo(0);
+        drive.setPowerThree(0);
+        drive.setPowerFour(0);
+        sleep(500);
+
+        //CLOCKWISE
+        drive.setPowerOne(-1);
+        drive.setPowerTwo(1);
+        drive.setPowerThree(1);
+        drive.setPowerFour(-1);
+        sleep(700);
+        drive.setPowerOne(0);
+        drive.setPowerTwo(0);
+        drive.setPowerThree(0);
+        drive.setPowerFour(0);
+        sleep(500);
+
+        //BACK
+        drive.setPowerOne(-1);
+        drive.setPowerTwo(-1);
+        drive.setPowerThree(-1);
+        drive.setPowerFour(-1);
+        sleep(200);
+        drive.setPowerOne(0);
+        drive.setPowerTwo(0);
+        drive.setPowerThree(0);
+        drive.setPowerFour(0);
+        sleep(500);
+
+        time.reset();
+
+        boolean gold = false;
+        while(!gold){
+            drive.setPowerOne(.25);
+            drive.setPowerTwo(.25);
+            drive.setPowerThree(.25);
+            drive.setPowerFour(.25);
+
+            telemetry.addData("IsAligned" , detector.getAligned()); // Is the bot aligned with the gold mineral?
+            telemetry.addData("X Pos" , detector.getXPosition()); // Gold X position.
+
+            if(detector.getAligned()){
+                gold = true;
+            }
+
+            if(time.seconds() > 5){
+                gold = true;
+            }
         }
 
         detector.disable();
+
+        drive.setPowerOne(0);
+        drive.setPowerTwo(0);
+        drive.setPowerThree(0);
+        drive.setPowerFour(0);
+        sleep(500);
+
+        //COUNTER CLOCKWISE
+        drive.setPowerOne(1);
+        drive.setPowerTwo(-1);
+        drive.setPowerThree(-1);
+        drive.setPowerFour(1);
+        sleep(1000);
+        drive.setPowerOne(0);
+        drive.setPowerTwo(0);
+        drive.setPowerThree(0);
+        drive.setPowerFour(0);
+        sleep(500);
+
+        //BACK
+        drive.setPowerOne(-1);
+        drive.setPowerTwo(-1);
+        drive.setPowerThree(-1);
+        drive.setPowerFour(-1);
+        sleep(5000);
+        drive.setPowerOne(0);
+        drive.setPowerTwo(0);
+        drive.setPowerThree(0);
+        drive.setPowerFour(0);
+        sleep(500);
+
+        //**********MINERAL TAP STOP**********//
 
     }
 

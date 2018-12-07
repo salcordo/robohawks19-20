@@ -1,16 +1,15 @@
-package robohawks.controllers;
+package robohawks.controllers.test;
 
 import com.disnodeteam.dogecv.CameraViewDisplay;
 import com.disnodeteam.dogecv.DogeCV;
 import com.disnodeteam.dogecv.detectors.roverrukus.GoldAlignDetector;
 import com.disnodeteam.dogecv.detectors.roverrukus.SamplingOrderDetector;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
-import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
+import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 
 
-@TeleOp(name="GoldAlign Example", group="DogeCV")
-
-public class AutoController extends OpMode
+@Autonomous(name="GoldAlign Example")
+public class GoldAlignTest extends OpMode
 {
     // Detector object
     private GoldAlignDetector detector;
@@ -64,6 +63,16 @@ public class AutoController extends OpMode
     public void loop() {
         telemetry.addData("IsAligned" , detector.getAligned()); // Is the bot aligned with the gold mineral?
         telemetry.addData("X Pos" , detector.getXPosition()); // Gold X position.
+
+        double position = detector.getXPosition();
+        if (position == 0){
+            telemetry.addData("Location" , "None");
+        }else if (position > 240){
+            telemetry.addData("Location" , "Right");
+        } else {
+            telemetry.addData("Location" , "Left");
+        }
+
     }
 
     /*
