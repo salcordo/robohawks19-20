@@ -6,17 +6,20 @@ import com.disnodeteam.dogecv.detectors.roverrukus.GoldAlignDetector;
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.hardware.DcMotor;
+import com.qualcomm.robotcore.hardware.Servo;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
 import robohawks.modules.base.HolonomicDriveModule;
 
-@Autonomous(name="Autonomous")
-public class LinearAutoController extends LinearOpMode {
+@Autonomous(name="Autonomous Pit")
+public class AutoControllerPit extends LinearOpMode {
 
     private GoldAlignDetector detector;
     HolonomicDriveModule drive;
     DcMotor liftArm;
     DcMotor liftArm2;
+    Servo phone;
+
     ElapsedTime time;
 
     @Override
@@ -27,7 +30,10 @@ public class LinearAutoController extends LinearOpMode {
         drive = new HolonomicDriveModule(hardwareMap);
         liftArm = hardwareMap.dcMotor.get("liftArm");
         liftArm2 = hardwareMap.dcMotor.get("liftArm2");
+        phone = hardwareMap.servo.get("phone");
         time = new ElapsedTime();
+
+        phone.setPosition(1);
 
         // Set up detector
         detector = new GoldAlignDetector(); // Create detector
@@ -104,6 +110,9 @@ public class LinearAutoController extends LinearOpMode {
 
         //**********MINERAL TAP START**********//
 
+        //SET SERVO
+        phone.setPosition(.65);
+
         //BACK
         drive.setPowerOne(-1);
         drive.setPowerTwo(-1);
@@ -149,8 +158,8 @@ public class LinearAutoController extends LinearOpMode {
             drive.setPowerThree(.25);
             drive.setPowerFour(.25);
 
-            telemetry.addData("IsAligned" , detector.getAligned()); // Is the bot aligned with the gold mineral?
-            telemetry.addData("X Pos" , detector.getXPosition()); // Gold X position.
+            telemetry.addData("IsAligned" , detector.getAligned());
+            telemetry.addData("X Pos" , detector.getXPosition());
 
             if(detector.getAligned()){
                 gold = true;
@@ -192,6 +201,8 @@ public class LinearAutoController extends LinearOpMode {
         drive.setPowerThree(0);
         drive.setPowerFour(0);
         sleep(500);
+
+        phone.setPosition(1);
 
         //**********MINERAL TAP STOP**********//
 

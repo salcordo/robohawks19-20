@@ -1,7 +1,9 @@
 package robohawks.controllers;
 
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
+import com.qualcomm.robotcore.hardware.CRServo;
 import com.qualcomm.robotcore.hardware.DcMotor;
+import com.qualcomm.robotcore.hardware.Servo;
 import com.qualcomm.robotcore.util.Range;
 
 import robohawks.controllers.old.Controller;
@@ -15,6 +17,12 @@ public class TeleopController extends Controller {
     DcMotor liftArm2;
     DcMotor mineralArm;
     DcMotor mineralSpool;
+    Servo phone;
+    Servo drop;
+    CRServo mineralCollector;
+
+    boolean tog;
+    boolean togl;
 
     @Override
     public void init() {
@@ -23,6 +31,14 @@ public class TeleopController extends Controller {
         liftArm2 = hardwareMap.dcMotor.get("liftArm2");
         mineralArm = hardwareMap.dcMotor.get("mineralArm");
         mineralSpool = hardwareMap.dcMotor.get("mineralSpool");
+        phone = hardwareMap.servo.get("phone");
+        drop = hardwareMap.servo.get("drop");
+        mineralCollector = hardwareMap.crservo.get("pipe");
+
+        tog = false;
+        togl = false;
+
+        phone.setPosition(1);
     }
 
     @Override
@@ -30,9 +46,9 @@ public class TeleopController extends Controller {
         super.loop();
 
         // DRIVE
-        float gamepad1LeftY = -gamepad1.left_stick_y;
-        float gamepad1LeftX = gamepad1.left_stick_x;
-        float gamepad1RightX = gamepad1.right_stick_x;
+        float gamepad1LeftY = -gamepad2.left_stick_y;
+        float gamepad1LeftX = gamepad2.left_stick_x;
+        float gamepad1RightX = gamepad2.right_stick_x;
 
                 // holonomic formulas
         float FrontLeft = -gamepad1LeftY - gamepad1LeftX - gamepad1RightX;
@@ -93,6 +109,35 @@ public class TeleopController extends Controller {
             mineralSpool.setPower(-1);
         } else {
             mineralSpool.setPower(0);
+        }
+
+        // MINERAL COLLECTION
+        if (gamepad1.right_bumper) {
+            tog = !tog;
+        }
+        if (tog){
+            mineralCollector.setPower(1);
+        }
+
+        if (gamepad1.left_bumper) {
+            togl = !togl;
+        }
+        if (togl){
+            mineralCollector.setPower(-1);
+        }
+
+        // PHONE
+        if (gamepad1.right_stick_button){
+            phone.setPosition(.65);
+        }else{
+            phone.setPosition(1);
+        }
+
+        // DROP
+        if (gamepad1.left_stick_button){
+            drop.setPosition(0);
+        }else{
+            drop.setPosition(1);
         }
     }
 }
