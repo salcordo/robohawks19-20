@@ -21,8 +21,8 @@ public class TeleopController extends Controller {
     Servo drop;
     CRServo mineralCollector;
 
-    boolean tog;
-    boolean togl;
+    boolean tog = false;
+    boolean togl = false;
 
     @Override
     public void init() {
@@ -35,10 +35,9 @@ public class TeleopController extends Controller {
         drop = hardwareMap.servo.get("drop");
         mineralCollector = hardwareMap.crservo.get("pipe");
 
-        tog = false;
-        togl = false;
-
         phone.setPosition(1);
+
+        telemetry.addData("mineralCollector", mineralCollector.getPower());
     }
 
     @Override
@@ -112,18 +111,20 @@ public class TeleopController extends Controller {
         }
 
         // MINERAL COLLECTION
-        if (gamepad1.right_bumper) {
-            tog = !tog;
-        }
-        if (tog){
-            mineralCollector.setPower(1);
+        if (gamepad1.right_bumper){
+            if (mineralCollector.getPower() == 0 || mineralCollector.getPower() == -1) {
+                mineralCollector.setPower(1);
+            } else {
+                mineralCollector.setPower(0);
+            }
         }
 
         if (gamepad1.left_bumper) {
-            togl = !togl;
-        }
-        if (togl){
-            mineralCollector.setPower(-1);
+            if (mineralCollector.getPower() == 0 || mineralCollector.getPower() == 1){
+                mineralCollector.setPower(-1);
+            } else {
+                mineralCollector.setPower(0);
+            }
         }
 
         // PHONE
@@ -135,9 +136,9 @@ public class TeleopController extends Controller {
 
         // DROP
         if (gamepad1.left_stick_button){
-            drop.setPosition(0);
-        }else{
             drop.setPosition(1);
+        }else{
+            drop.setPosition(0);
         }
     }
 }

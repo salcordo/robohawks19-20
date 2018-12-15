@@ -36,7 +36,7 @@ public class AutoControllerDepot extends LinearOpMode {
         time = new ElapsedTime();
 
         phone.setPosition(1);
-        drop.setPosition(1);
+        drop.setPosition(0);
 
         // Set up detector
         detector = new GoldAlignDetector(); // Create detector
@@ -208,7 +208,7 @@ public class AutoControllerDepot extends LinearOpMode {
         phone.setPosition(1);
 
         //DROP
-        drop.setPosition(0);
+        drop.setPosition(1);
 
         //**********MINERAL TAP STOP**********//
 
