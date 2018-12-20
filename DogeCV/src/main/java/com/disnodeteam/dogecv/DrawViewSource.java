@@ -16,6 +16,7 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 
+import org.corningrobotics.enderbots.endercv.R;
 import org.opencv.BuildConfig;
 
 import java.util.ArrayList;
