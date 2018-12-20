@@ -45,8 +45,8 @@ public class TeleopController extends Controller {
         super.loop();
 
         // DRIVE
-        float gamepad1LeftY = -gamepad2.left_stick_y;
-        float gamepad1LeftX = gamepad2.left_stick_x;
+        float gamepad1LeftY = gamepad2.left_stick_y;
+        float gamepad1LeftX = -gamepad2.left_stick_x;
         float gamepad1RightX = gamepad2.right_stick_x;
 
                 // holonomic formulas
@@ -129,9 +129,9 @@ public class TeleopController extends Controller {
 
         // PHONE
         if (gamepad1.right_stick_button){
-            phone.setPosition(.65);
+            phone.setPosition(.1);
         }else{
-            phone.setPosition(1);
+            phone.setPosition(0);
         }
 
         // DROP
