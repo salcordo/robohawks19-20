@@ -21,6 +21,8 @@ public class AutoControllerPit extends LinearOpMode {
     HolonomicDriveModule drive;
     DcMotor liftArm;
     DcMotor liftArm2;
+    DcMotor mineralArm;
+    DcMotor mineralSpool;
     Servo phone;
     Servo drop;
 
@@ -43,11 +45,13 @@ public class AutoControllerPit extends LinearOpMode {
         drive = new HolonomicDriveModule(hardwareMap);
         liftArm = hardwareMap.dcMotor.get("liftArm");
         liftArm2 = hardwareMap.dcMotor.get("liftArm2");
+        mineralArm = hardwareMap.dcMotor.get("mineralArm");
+        mineralSpool = hardwareMap.dcMotor.get("mineralSpool");
         phone = hardwareMap.servo.get("phone");
         drop = hardwareMap.servo.get("drop");
         time = new ElapsedTime();
 
-        phone.setPosition(.15);
+        phone.setPosition(.1);
         drop.setPosition(0);
 
         initVuforia();
@@ -163,9 +167,6 @@ public class AutoControllerPit extends LinearOpMode {
 
             //**********MINERAL TAP START**********//
 
-            //SET SERVO
-            phone.setPosition(.7);
-
             switch (pos) {
                 case "left":
                     //COUNTER CLOCKWISE
@@ -173,12 +174,47 @@ public class AutoControllerPit extends LinearOpMode {
                     drive.setPowerTwo(-1);
                     drive.setPowerThree(-1);
                     drive.setPowerFour(1);
-                    sleep(500);
+                    sleep(350);
                     drive.setPowerOne(0);
                     drive.setPowerTwo(0);
                     drive.setPowerThree(0);
                     drive.setPowerFour(0);
                     sleep(500);
+
+                    //BACK
+                    drive.setPowerOne(-1);
+                    drive.setPowerTwo(-1);
+                    drive.setPowerThree(-1);
+                    drive.setPowerFour(-1);
+                    sleep(1000);
+                    drive.setPowerOne(0);
+                    drive.setPowerTwo(0);
+                    drive.setPowerThree(0);
+                    drive.setPowerFour(0);
+                    sleep(500);
+
+                    //CLOCKWISE
+                    drive.setPowerOne(-1);
+                    drive.setPowerTwo(1);
+                    drive.setPowerThree(1);
+                    drive.setPowerFour(-1);
+                    sleep(700);
+                    drive.setPowerOne(0);
+                    drive.setPowerTwo(0);
+                    drive.setPowerThree(0);
+                    drive.setPowerFour(0);
+                    sleep(500);
+
+                    //RISE
+                    mineralArm.setPower(-1);
+                    sleep(200);
+                    mineralArm.setPower(0);
+
+                    //EXTEND
+                    mineralSpool.setPower(-1);
+                    sleep(3000);
+                    mineralSpool.setPower(0);
+
                     break;
                 case "right":
                     //CLOCKWISE
@@ -186,44 +222,75 @@ public class AutoControllerPit extends LinearOpMode {
                     drive.setPowerTwo(1);
                     drive.setPowerThree(1);
                     drive.setPowerFour(-1);
-                    sleep(500);
+                    sleep(350);
                     drive.setPowerOne(0);
                     drive.setPowerTwo(0);
                     drive.setPowerThree(0);
                     drive.setPowerFour(0);
                     sleep(500);
+
+                    //BACK
+                    drive.setPowerOne(-1);
+                    drive.setPowerTwo(-1);
+                    drive.setPowerThree(-1);
+                    drive.setPowerFour(-1);
+                    sleep(1000);
+                    drive.setPowerOne(0);
+                    drive.setPowerTwo(0);
+                    drive.setPowerThree(0);
+                    drive.setPowerFour(0);
+                    sleep(500);
+
+                    //COUNTER CLOCKWISE
+                    drive.setPowerOne(1);
+                    drive.setPowerTwo(-1);
+                    drive.setPowerThree(-1);
+                    drive.setPowerFour(1);
+                    sleep(700);
+                    drive.setPowerOne(0);
+                    drive.setPowerTwo(0);
+                    drive.setPowerThree(0);
+                    drive.setPowerFour(0);
+                    sleep(500);
+
+                    //RISE
+                    mineralArm.setPower(-1);
+                    sleep(200);
+                    mineralArm.setPower(0);
+
+                    //EXTEND
+                    mineralSpool.setPower(-1);
+                    sleep(3000);
+                    mineralSpool.setPower(0);
+
                     break;
                 default:
-                    //FORWARD
-                    drive.setPowerOne(1);
-                    drive.setPowerTwo(1);
-                    drive.setPowerThree(1);
-                    drive.setPowerFour(1);
-                    sleep(500);
+                    //BACK
+                    drive.setPowerOne(-1);
+                    drive.setPowerTwo(-1);
+                    drive.setPowerThree(-1);
+                    drive.setPowerFour(-1);
+                    sleep(900);
                     drive.setPowerOne(0);
                     drive.setPowerTwo(0);
                     drive.setPowerThree(0);
                     drive.setPowerFour(0);
                     sleep(500);
+
+                    //RISE
+                    mineralArm.setPower(-1);
+                    sleep(200);
+                    mineralArm.setPower(0);
+
+                    //EXTEND
+                    mineralSpool.setPower(-1);
+                    sleep(3000);
+                    mineralSpool.setPower(0);
+
                     break;
             }
 
-            phone.setPosition(1);
-
-            //FORWARD
-            drive.setPowerOne(1);
-            drive.setPowerTwo(1);
-            drive.setPowerThree(1);
-            drive.setPowerFour(1);
-            sleep(500);
-            drive.setPowerOne(0);
-            drive.setPowerTwo(0);
-            drive.setPowerThree(0);
-            drive.setPowerFour(0);
-            sleep(500);
-
-            //DROP
-            drop.setPosition(1);
+            phone.setPosition(0);
 
             //**********MINERAL TAP STOP**********//
         }
