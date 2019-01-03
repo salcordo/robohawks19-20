@@ -112,19 +112,15 @@ public class TeleopController extends Controller {
 
         // MINERAL COLLECTION
         if (gamepad1.right_bumper){
-            if (mineralCollector.getPower() == 0 || mineralCollector.getPower() == -1) {
-                mineralCollector.setPower(1);
-            } else {
-                mineralCollector.setPower(0);
-            }
+            mineralCollector.setPower(1);
         }
 
         if (gamepad1.left_bumper) {
-            if (mineralCollector.getPower() == 0 || mineralCollector.getPower() == 1){
-                mineralCollector.setPower(-1);
-            } else {
-                mineralCollector.setPower(0);
-            }
+            mineralCollector.setPower(-1);
+        }
+
+        if (gamepad1.dpad_left){
+            mineralCollector.setPower(0);
         }
 
         // PHONE
