@@ -125,12 +125,12 @@ public class AutoControllerDepot extends LinearOpMode {
             liftArm.setPower(0);
             liftArm2.setPower(0);
 
-            //CLOCKWISE
+            //RIGHT
             drive.setPowerOne(-1);
             drive.setPowerTwo(1);
-            drive.setPowerThree(1);
-            drive.setPowerFour(-1);
-            sleep(300);
+            drive.setPowerThree(-1);
+            drive.setPowerFour(1);
+            sleep(500);
             drive.setPowerOne(0);
             drive.setPowerTwo(0);
             drive.setPowerThree(0);
@@ -149,12 +149,12 @@ public class AutoControllerDepot extends LinearOpMode {
             drive.setPowerFour(0);
             sleep(500);
 
-            //COUNTER CLOCKWISE
+            //LEFT
             drive.setPowerOne(1);
             drive.setPowerTwo(-1);
-            drive.setPowerThree(-1);
-            drive.setPowerFour(1);
-            sleep(300);
+            drive.setPowerThree(1);
+            drive.setPowerFour(-1);
+            sleep(250);
             drive.setPowerOne(0);
             drive.setPowerTwo(0);
             drive.setPowerThree(0);
@@ -174,7 +174,7 @@ public class AutoControllerDepot extends LinearOpMode {
                     drive.setPowerTwo(-1);
                     drive.setPowerThree(-1);
                     drive.setPowerFour(1);
-                    sleep(350);
+                    sleep(500);
                     drive.setPowerOne(0);
                     drive.setPowerTwo(0);
                     drive.setPowerThree(0);
@@ -186,7 +186,7 @@ public class AutoControllerDepot extends LinearOpMode {
                     drive.setPowerTwo(-1);
                     drive.setPowerThree(-1);
                     drive.setPowerFour(-1);
-                    sleep(1000);
+                    sleep(850);
                     drive.setPowerOne(0);
                     drive.setPowerTwo(0);
                     drive.setPowerThree(0);
@@ -198,21 +198,28 @@ public class AutoControllerDepot extends LinearOpMode {
                     drive.setPowerTwo(1);
                     drive.setPowerThree(1);
                     drive.setPowerFour(-1);
-                    sleep(600);
+                    sleep(750);
                     drive.setPowerOne(0);
                     drive.setPowerTwo(0);
                     drive.setPowerThree(0);
                     drive.setPowerFour(0);
                     sleep(500);
 
-                    //RISE
-                    mineralArm.setPower(-1);
-                    sleep(200);
-                    mineralArm.setPower(0);
+                    //BACK
+                    drive.setPowerOne(-1);
+                    drive.setPowerTwo(-1);
+                    drive.setPowerThree(-1);
+                    drive.setPowerFour(-1);
+                    sleep(300);
+                    drive.setPowerOne(0);
+                    drive.setPowerTwo(0);
+                    drive.setPowerThree(0);
+                    drive.setPowerFour(0);
+                    sleep(500);
 
                     //EXTEND
                     mineralSpool.setPower(-1);
-                    sleep(3000);
+                    sleep(2500);
                     mineralSpool.setPower(0);
 
                     break;
@@ -234,7 +241,7 @@ public class AutoControllerDepot extends LinearOpMode {
                     drive.setPowerTwo(-1);
                     drive.setPowerThree(-1);
                     drive.setPowerFour(-1);
-                    sleep(1000);
+                    sleep(850);
                     drive.setPowerOne(0);
                     drive.setPowerTwo(0);
                     drive.setPowerThree(0);
@@ -246,21 +253,28 @@ public class AutoControllerDepot extends LinearOpMode {
                     drive.setPowerTwo(-1);
                     drive.setPowerThree(-1);
                     drive.setPowerFour(1);
-                    sleep(600);
+                    sleep(800);
                     drive.setPowerOne(0);
                     drive.setPowerTwo(0);
                     drive.setPowerThree(0);
                     drive.setPowerFour(0);
                     sleep(500);
 
-                    //RISE
-                    mineralArm.setPower(-1);
-                    sleep(200);
-                    mineralArm.setPower(0);
+                    //BACK
+                    drive.setPowerOne(-1);
+                    drive.setPowerTwo(-1);
+                    drive.setPowerThree(-1);
+                    drive.setPowerFour(-1);
+                    sleep(300);
+                    drive.setPowerOne(0);
+                    drive.setPowerTwo(0);
+                    drive.setPowerThree(0);
+                    drive.setPowerFour(0);
+                    sleep(500);
 
                     //EXTEND
                     mineralSpool.setPower(-1);
-                    sleep(3000);
+                    sleep(2500);
                     mineralSpool.setPower(0);
 
                     break;
@@ -270,21 +284,28 @@ public class AutoControllerDepot extends LinearOpMode {
                     drive.setPowerTwo(-1);
                     drive.setPowerThree(-1);
                     drive.setPowerFour(-1);
-                    sleep(900);
+                    sleep(700);
                     drive.setPowerOne(0);
                     drive.setPowerTwo(0);
                     drive.setPowerThree(0);
                     drive.setPowerFour(0);
                     sleep(500);
 
-                    //RISE
-                    mineralArm.setPower(-1);
-                    sleep(200);
-                    mineralArm.setPower(0);
+                    //BACK
+                    drive.setPowerOne(-1);
+                    drive.setPowerTwo(-1);
+                    drive.setPowerThree(-1);
+                    drive.setPowerFour(-1);
+                    sleep(300);
+                    drive.setPowerOne(0);
+                    drive.setPowerTwo(0);
+                    drive.setPowerThree(0);
+                    drive.setPowerFour(0);
+                    sleep(500);
 
                     //EXTEND
                     mineralSpool.setPower(-1);
-                    sleep(3000);
+                    sleep(2500);
                     mineralSpool.setPower(0);
 
                     break;

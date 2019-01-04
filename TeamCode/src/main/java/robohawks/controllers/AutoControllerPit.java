@@ -125,6 +125,19 @@ public class AutoControllerPit extends LinearOpMode {
             liftArm.setPower(0);
             liftArm2.setPower(0);
 
+            //RIGHT
+            drive.setPowerOne(-1);
+            drive.setPowerTwo(1);
+            drive.setPowerThree(-1);
+            drive.setPowerFour(1);
+            sleep(500);
+            drive.setPowerOne(0);
+            drive.setPowerTwo(0);
+            drive.setPowerThree(0);
+            drive.setPowerFour(0);
+            sleep(500);
+
+            /*
             //CLOCKWISE
             drive.setPowerOne(-1);
             drive.setPowerTwo(1);
@@ -136,6 +149,7 @@ public class AutoControllerPit extends LinearOpMode {
             drive.setPowerThree(0);
             drive.setPowerFour(0);
             sleep(500);
+            */
 
             //BACK
             drive.setPowerOne(-1);
@@ -149,6 +163,19 @@ public class AutoControllerPit extends LinearOpMode {
             drive.setPowerFour(0);
             sleep(500);
 
+            //LEFT
+            drive.setPowerOne(1);
+            drive.setPowerTwo(-1);
+            drive.setPowerThree(1);
+            drive.setPowerFour(-1);
+            sleep(250);
+            drive.setPowerOne(0);
+            drive.setPowerTwo(0);
+            drive.setPowerThree(0);
+            drive.setPowerFour(0);
+            sleep(500);
+
+            /*
             //COUNTER CLOCKWISE
             drive.setPowerOne(1);
             drive.setPowerTwo(-1);
@@ -160,6 +187,7 @@ public class AutoControllerPit extends LinearOpMode {
             drive.setPowerThree(0);
             drive.setPowerFour(0);
             sleep(500);
+            */
 
             //**********DROP STOP**********//
 
@@ -174,7 +202,7 @@ public class AutoControllerPit extends LinearOpMode {
                     drive.setPowerTwo(-1);
                     drive.setPowerThree(-1);
                     drive.setPowerFour(1);
-                    sleep(400);
+                    sleep(500);
                     drive.setPowerOne(0);
                     drive.setPowerTwo(0);
                     drive.setPowerThree(0);
@@ -186,7 +214,7 @@ public class AutoControllerPit extends LinearOpMode {
                     drive.setPowerTwo(-1);
                     drive.setPowerThree(-1);
                     drive.setPowerFour(-1);
-                    sleep(1000);
+                    sleep(850);
                     drive.setPowerOne(0);
                     drive.setPowerTwo(0);
                     drive.setPowerThree(0);
@@ -198,21 +226,16 @@ public class AutoControllerPit extends LinearOpMode {
                     drive.setPowerTwo(1);
                     drive.setPowerThree(1);
                     drive.setPowerFour(-1);
-                    sleep(700);
+                    sleep(750);
                     drive.setPowerOne(0);
                     drive.setPowerTwo(0);
                     drive.setPowerThree(0);
                     drive.setPowerFour(0);
                     sleep(500);
 
-                    //RISE
-                    mineralArm.setPower(-1);
-                    sleep(200);
-                    mineralArm.setPower(0);
-
                     //EXTEND
                     mineralSpool.setPower(-1);
-                    sleep(3000);
+                    sleep(2500);
                     mineralSpool.setPower(0);
 
                     break;
@@ -234,7 +257,7 @@ public class AutoControllerPit extends LinearOpMode {
                     drive.setPowerTwo(-1);
                     drive.setPowerThree(-1);
                     drive.setPowerFour(-1);
-                    sleep(1000);
+                    sleep(850);
                     drive.setPowerOne(0);
                     drive.setPowerTwo(0);
                     drive.setPowerThree(0);
@@ -246,21 +269,16 @@ public class AutoControllerPit extends LinearOpMode {
                     drive.setPowerTwo(-1);
                     drive.setPowerThree(-1);
                     drive.setPowerFour(1);
-                    sleep(700);
+                    sleep(800);
                     drive.setPowerOne(0);
                     drive.setPowerTwo(0);
                     drive.setPowerThree(0);
                     drive.setPowerFour(0);
                     sleep(500);
 
-                    //RISE
-                    mineralArm.setPower(-1);
-                    sleep(200);
-                    mineralArm.setPower(0);
-
                     //EXTEND
                     mineralSpool.setPower(-1);
-                    sleep(3000);
+                    sleep(2500);
                     mineralSpool.setPower(0);
 
                     break;
@@ -270,21 +288,16 @@ public class AutoControllerPit extends LinearOpMode {
                     drive.setPowerTwo(-1);
                     drive.setPowerThree(-1);
                     drive.setPowerFour(-1);
-                    sleep(800);
+                    sleep(700);
                     drive.setPowerOne(0);
                     drive.setPowerTwo(0);
                     drive.setPowerThree(0);
                     drive.setPowerFour(0);
                     sleep(500);
 
-                    //RISE
-                    mineralArm.setPower(-1);
-                    sleep(200);
-                    mineralArm.setPower(0);
-
                     //EXTEND
                     mineralSpool.setPower(-1);
-                    sleep(3000);
+                    sleep(2500);
                     mineralSpool.setPower(0);
 
                     break;
