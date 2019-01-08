@@ -2,6 +2,7 @@ package robohawks.controllers;
 
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
+import com.qualcomm.robotcore.hardware.CRServo;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.Servo;
 import com.qualcomm.robotcore.util.ElapsedTime;
@@ -25,6 +26,7 @@ public class AutoControllerDepot extends LinearOpMode {
     DcMotor mineralSpool;
     Servo phone;
     Servo drop;
+    CRServo mineralCollector;
 
     private static final String TFOD_MODEL_ASSET = "RoverRuckus.tflite";
     private static final String LABEL_GOLD_MINERAL = "Gold Mineral";
@@ -50,6 +52,7 @@ public class AutoControllerDepot extends LinearOpMode {
         phone = hardwareMap.servo.get("phone");
         drop = hardwareMap.servo.get("drop");
         time = new ElapsedTime();
+        mineralCollector = hardwareMap.crservo.get("pipe");
 
         phone.setPosition(.1);
         drop.setPosition(0);
@@ -174,7 +177,7 @@ public class AutoControllerDepot extends LinearOpMode {
                     drive.setPowerTwo(-1);
                     drive.setPowerThree(-1);
                     drive.setPowerFour(1);
-                    sleep(500);
+                    sleep(600);
                     drive.setPowerOne(0);
                     drive.setPowerTwo(0);
                     drive.setPowerThree(0);
@@ -253,7 +256,7 @@ public class AutoControllerDepot extends LinearOpMode {
                     drive.setPowerTwo(-1);
                     drive.setPowerThree(-1);
                     drive.setPowerFour(1);
-                    sleep(800);
+                    sleep(700);
                     drive.setPowerOne(0);
                     drive.setPowerTwo(0);
                     drive.setPowerThree(0);
@@ -310,6 +313,13 @@ public class AutoControllerDepot extends LinearOpMode {
 
                     break;
             }
+
+            //SPIN
+            mineralCollector.setPower(1);
+            sleep(2500);
+            mineralCollector.setPower(-1);
+            sleep(2500);
+            mineralCollector.setPower(0);
 
             phone.setPosition(0);
 
