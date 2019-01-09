@@ -79,7 +79,7 @@ public class AutoControllerDepot extends LinearOpMode {
 
             String pos = "right";
 
-            while (time.seconds() < 5) {
+            while (time.seconds() < 4) {
 
                 if (tfod != null) {
                     // getUpdatedRecognitions() will return null if no new information is available since
@@ -256,7 +256,7 @@ public class AutoControllerDepot extends LinearOpMode {
                     drive.setPowerTwo(-1);
                     drive.setPowerThree(-1);
                     drive.setPowerFour(1);
-                    sleep(700);
+                    sleep(900);
                     drive.setPowerOne(0);
                     drive.setPowerTwo(0);
                     drive.setPowerThree(0);

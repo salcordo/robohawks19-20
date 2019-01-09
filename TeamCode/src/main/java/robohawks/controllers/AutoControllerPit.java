@@ -76,7 +76,7 @@ public class AutoControllerPit extends LinearOpMode {
 
             String pos = "right";
 
-            while (time.seconds() < 5) {
+            while (time.seconds() < 4) {
 
                 if (tfod != null) {
                     // getUpdatedRecognitions() will return null if no new information is available since

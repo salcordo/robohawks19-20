@@ -21,8 +21,7 @@ public class TeleopController extends Controller {
     Servo drop;
     CRServo mineralCollector;
 
-    boolean tog = false;
-    boolean togl = false;
+    int tog = -1;
 
     @Override
     public void init() {
@@ -47,7 +46,7 @@ public class TeleopController extends Controller {
         // DRIVE
         float gamepad1LeftY = gamepad2.left_stick_y;
         float gamepad1LeftX = -gamepad2.left_stick_x;
-        float gamepad1RightX = gamepad2.right_stick_x;
+        float gamepad1RightX = gamepad2.right_stick_x * (tog * -1);
 
                 // holonomic formulas
         float FrontLeft = -gamepad1LeftY - gamepad1LeftX - gamepad1RightX;
@@ -62,10 +61,17 @@ public class TeleopController extends Controller {
         BackRight = Range.clip(BackRight, -1, 1);
 
                 // write the values to the motors
-        drive.setPowerOne(FrontRight/2);
-        drive.setPowerTwo(-FrontLeft/2);
-        drive.setPowerThree(-BackLeft/2);
-        drive.setPowerFour(BackRight/2);
+        drive.setPowerOne(-FrontRight/2 * tog);
+        drive.setPowerTwo(FrontLeft/2 * tog);
+        drive.setPowerThree(BackLeft/2 * tog);
+        drive.setPowerFour(-BackRight/2 * tog);
+
+        //TOGGLE
+        if (gamepad2.dpad_up){
+            tog = -1;
+        } else if (gamepad2.dpad_down){
+            tog = 1;
+        }
 
         // LIFT ARM
         if (gamepad1.dpad_down){
