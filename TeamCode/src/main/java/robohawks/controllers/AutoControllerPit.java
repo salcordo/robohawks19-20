@@ -252,7 +252,7 @@ public class AutoControllerPit extends LinearOpMode {
                     drive.setPowerFour(0);
                     sleep(500);
 
-                    //BACK
+                    //BACK UP
                     drive.setPowerOne(-1);
                     drive.setPowerTwo(-1);
                     drive.setPowerThree(-1);
