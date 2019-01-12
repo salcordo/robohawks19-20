@@ -79,7 +79,7 @@ public class AutoControllerDepot extends LinearOpMode {
 
             String pos = "right";
 
-            while (time.seconds() < 4) {
+            while (time.seconds() < 4 && opModeIsActive()) {
 
                 if (tfod != null) {
                     // getUpdatedRecognitions() will return null if no new information is available since
@@ -91,6 +91,11 @@ public class AutoControllerDepot extends LinearOpMode {
                             int goldMineralX = -1;
                             int silverMineral1X = -1;
                             for (Recognition recognition : updatedRecognitions) {
+
+                                if(!opModeIsActive()){
+                                    break;
+                                }
+
                                 if (recognition.getLabel().equals(LABEL_GOLD_MINERAL)) {
                                     goldMineralX = (int) recognition.getLeft();
                                 } else if (silverMineral1X == -1) {
