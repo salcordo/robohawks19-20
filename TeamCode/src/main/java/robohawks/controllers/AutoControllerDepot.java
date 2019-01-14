@@ -261,7 +261,7 @@ public class AutoControllerDepot extends LinearOpMode {
                     drive.setPowerTwo(-1);
                     drive.setPowerThree(-1);
                     drive.setPowerFour(1);
-                    sleep(900);
+                    sleep(950);
                     drive.setPowerOne(0);
                     drive.setPowerTwo(0);
                     drive.setPowerThree(0);
@@ -287,6 +287,19 @@ public class AutoControllerDepot extends LinearOpMode {
 
                     break;
                 default:
+
+                    //COUNTER CLOCKWISE
+                    drive.setPowerOne(1);
+                    drive.setPowerTwo(-1);
+                    drive.setPowerThree(-1);
+                    drive.setPowerFour(1);
+                    sleep(100);
+                    drive.setPowerOne(0);
+                    drive.setPowerTwo(0);
+                    drive.setPowerThree(0);
+                    drive.setPowerFour(0);
+                    sleep(100);
+
                     //BACK
                     drive.setPowerOne(-1);
                     drive.setPowerTwo(-1);
