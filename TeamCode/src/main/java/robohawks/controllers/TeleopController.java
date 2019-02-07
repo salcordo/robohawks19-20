@@ -15,8 +15,9 @@ public class TeleopController extends Controller {
     HolonomicDriveModule drive;
     DcMotor liftArm;
     DcMotor liftArm2;
-    DcMotor mineralArm;
-    DcMotor mineralSpool;
+    DcMotor mineralArmm;
+    DcMotor mineralArms;
+    //DcMotor mineralSpool;
     Servo phone;
     Servo drop;
     CRServo mineralCollector;
@@ -28,8 +29,9 @@ public class TeleopController extends Controller {
         drive = new HolonomicDriveModule(hardwareMap);
         liftArm = hardwareMap.dcMotor.get("liftArm");
         liftArm2 = hardwareMap.dcMotor.get("liftArm2");
-        mineralArm = hardwareMap.dcMotor.get("mineralArm");
-        mineralSpool = hardwareMap.dcMotor.get("mineralSpool");
+        mineralArmm = hardwareMap.dcMotor.get("mineralArmm");
+        mineralArms = hardwareMap.dcMotor.get("mineralArms");
+        //mineralSpool = hardwareMap.dcMotor.get("mineralSpool");
         phone = hardwareMap.servo.get("phone");
         drop = hardwareMap.servo.get("drop");
         mineralCollector = hardwareMap.crservo.get("pipe");
@@ -92,29 +94,33 @@ public class TeleopController extends Controller {
 
         // MINERAL ARM
         if (gamepad1.x){
-            mineralArm.setPower(1);
+            mineralArmm.setPower(-.85);
+            mineralArms.setPower(-.85);
         } else {
-            mineralArm.setPower(0);
+            mineralArmm.setPower(0);
+            mineralArms.setPower(0);
         }
 
         if (gamepad1.a){
-            mineralArm.setPower(-1);
+            mineralArmm.setPower(.85);
+            mineralArms.setPower(.85);
         } else {
-            mineralArm.setPower(0);
+            mineralArmm.setPower(0);
+            mineralArms.setPower(0);
         }
 
-        // MINERAL SPOOL
-        if (gamepad1.b){
-            mineralSpool.setPower(1);
-        } else {
-            mineralSpool.setPower(0);
-        }
-
-        if (gamepad1.y){
-            mineralSpool.setPower(-1);
-        } else {
-            mineralSpool.setPower(0);
-        }
+//        // MINERAL SPOOL
+//        if (gamepad1.b){
+//            mineralSpool.setPower(1);
+//        } else {
+//            mineralSpool.setPower(0);
+//        }
+//
+//        if (gamepad1.y){
+//            mineralSpool.setPower(-1);
+//        } else {
+//            mineralSpool.setPower(0);
+//        }
 
         // MINERAL COLLECTION
         if (gamepad1.right_bumper){
