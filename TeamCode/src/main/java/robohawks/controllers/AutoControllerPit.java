@@ -306,6 +306,7 @@ public class AutoControllerPit extends LinearOpMode {
             phone.setPosition(0);
 
             //**********MINERAL TAP STOP**********//
+            //Final
         }
 
     }
