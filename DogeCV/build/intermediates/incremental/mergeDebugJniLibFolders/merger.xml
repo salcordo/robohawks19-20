@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merger version="3"><dataSet config="main"><source path="C:\Users\BHHS Robotics Team\Desktop\Git\robohawks19-20\DogeCV\src\main\jniLibs"><file name="armeabi-v7a/libopencv_java3.so" path="C:\Users\BHHS Robotics Team\Desktop\Git\robohawks19-20\DogeCV\src\main\jniLibs\armeabi-v7a\libopencv_java3.so"/></source></dataSet><dataSet config="debug"><source path="C:\Users\BHHS Robotics Team\Desktop\Git\robohawks19-20\DogeCV\src\debug\jniLibs"/></dataSet></merger>
