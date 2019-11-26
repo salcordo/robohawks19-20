@@ -14,6 +14,7 @@ public class TeleopController extends Controller {
 
     HolonomicDriveModule drive;
     DcMotor motorLift;
+    DcMotor motorCwheels;
 
     float precisionx = 1;
     float precisiony = 1;
@@ -22,6 +23,7 @@ public class TeleopController extends Controller {
     public void init() {
         drive = new HolonomicDriveModule(hardwareMap);
         motorLift = hardwareMap.dcMotor.get("motorLift");
+        motorCwheels = hardwareMap.dcMotor.get("motorCwheels");
     }
 
     @Override
@@ -51,6 +53,26 @@ public class TeleopController extends Controller {
         drive.setPowerThree(BackLeft/2);
         drive.setPowerFour(-BackRight/2);
 
+
+        //TOGGLE COMPLIANCE WHEELS
+        boolean compliancewheels = false;
+        if((gamepad1.a) && (compliancewheels = false)){
+            compliancewheels = true;
+            motorCwheels.setPower(1);
+        } else if ((gamepad1.a) && (compliancewheels = true)){
+            compliancewheels = false;
+            motorCwheels.setPower(0);
+        }
+
+        //EXAMPLE BUTTON
+        //if(input){
+        //  motor.setPower(value);
+        //  servo.setPower(value);
+        //  servo.setPosition(value);
+        //} else {
+        //  motor.setPower(0);
+        //  servo.setPower(0);
+        //  servo.setPosition(0);
 
         //PRECISION X AND Y
         if (gamepad1.dpad_down){
