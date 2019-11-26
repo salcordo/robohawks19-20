@@ -1,13 +1,13 @@
-        package robohawks.controllers;
+package robohawks.controllers;
 
-        import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
-        import com.qualcomm.robotcore.hardware.CRServo;
-        import com.qualcomm.robotcore.hardware.DcMotor;
-        import com.qualcomm.robotcore.hardware.Servo;
-        import com.qualcomm.robotcore.util.Range;
+import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
+import com.qualcomm.robotcore.hardware.CRServo;
+import com.qualcomm.robotcore.hardware.DcMotor;
+import com.qualcomm.robotcore.hardware.Servo;
+import com.qualcomm.robotcore.util.Range;
 
-        import robohawks.controllers.old.Controller;
-        import robohawks.modules.base.HolonomicDriveModule;
+import robohawks.controllers.old.Controller;
+import robohawks.modules.base.HolonomicDriveModule;
 
 @TeleOp(name = "TeleOp", group = "Teleop")
 public class TeleopController extends Controller {
@@ -74,11 +74,14 @@ public class TeleopController extends Controller {
         //  servo.setPower(0);
         //  servo.setPosition(0);
 
-        //PRECISION X AND Y
-        if (gamepad1.dpad_down){
+        //TOGGLE PRECISION MODE FOR PRIMARY DRIVER (CONTROLLER A)
+        boolean precisionmodea = false;
+        if((gamepad1.b) && (precisionmodea = false)){
+            precisionmodea = true;
             precisionx = (float) 0.6;
             precisiony = (float) 0.4;
-        } else if (gamepad1.dpad_up){
+        } else if ((gamepad1.b) && (precisionmodea = true)){
+            precisionmodea = false;
             precisionx = (float) 1;
             precisiony = (float) 1;
         }
