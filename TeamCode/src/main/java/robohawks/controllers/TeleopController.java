@@ -31,9 +31,9 @@ public class TeleopController extends Controller {
         super.loop();
 
         // DRIVE
-        float gamepad1LeftY = gamepad1.left_stick_y * precisiony;
-        float gamepad1LeftX = -gamepad1.left_stick_x * precisionx;
-        float gamepad1RightX = gamepad1.right_stick_x * precisionx;
+        float gamepad1LeftY = gamepad1.left_stick_y * precisionya;
+        float gamepad1LeftX = -gamepad1.left_stick_x * precisionxa;
+        float gamepad1RightX = gamepad1.right_stick_x * precisionxa;
 
         // holonomic formulas
         float FrontLeft = -gamepad1LeftY - gamepad1LeftX - gamepad1RightX;
@@ -74,17 +74,30 @@ public class TeleopController extends Controller {
         //  servo.setPower(0);
         //  servo.setPosition(0);
 
-        //TOGGLE PRECISION MODE FOR PRIMARY DRIVER (CONTROLLER A)
+        //TOGGLE PRECISION MODE FOR PRIMARY DRIVER (CONTROLLER 1)
         boolean precisionmodea = false;
         if((gamepad1.b) && (precisionmodea = false)){
             precisionmodea = true;
-            precisionx = (float) 0.6;
-            precisiony = (float) 0.4;
+            precisionxa = (float) 0.6;
+            precisionya = (float) 0.4;
         } else if ((gamepad1.b) && (precisionmodea = true)){
             precisionmodea = false;
-            precisionx = (float) 1;
-            precisiony = (float) 1;
+            precisionxa = (float) 1;
+            precisionya = (float) 1;
         }
+
+        //TOGGLE PRECISION MODE FOR SECONDARY DRIVER (CONTROLLER 2)
+        boolean precisionmodeb = false;
+        if ((gamepad2.b) && (precisionmodeb = false)) {
+            precisionmodeb = true;
+            precisionxb = (float) 0.6;
+            precisionyb = (float) 0.4;
+        } else if ((gamepad2.b) && (precisionmodeb = true)){
+            precisionmodeb = false;
+            precisionxb = (float) 1;
+            precisionyb = (float) 1;
+        }
+
 
         //LIFT ARM
         if(gamepad2.right_bumper){
