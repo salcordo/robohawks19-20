@@ -74,25 +74,25 @@ public class TeleopController extends Controller {
         //  servo.setPower(0);
         //  servo.setPosition(0);
 
-        //TOGGLE PRECISION MODE FOR PRIMARY DRIVER (CONTROLLER 1)
+        //Toggle precision mode for primary driver (Controller 1)
         boolean precisionmodea = false;
-        if((gamepad1.b) && (precisionmodea = false)){
+        if(gamepad1.b && !precisionmodea){
             precisionmodea = true;
             precisionxa = (float) 0.6;
             precisionya = (float) 0.4;
-        } else if ((gamepad1.b) && (precisionmodea = true)){
+        } else if (gamepad1.b && precisionmodea = true){
             precisionmodea = false;
             precisionxa = (float) 1;
             precisionya = (float) 1;
         }
 
-        //TOGGLE PRECISION MODE FOR SECONDARY DRIVER (CONTROLLER 2)
+        //Toggle precision mode for secondary driver (Controller 2)
         boolean precisionmodeb = false;
-        if ((gamepad2.b) && (precisionmodeb = false)) {
+        if (gamepad2.b && !precisionmodeb) {
             precisionmodeb = true;
             precisionxb = (float) 0.6;
             precisionyb = (float) 0.4;
-        } else if ((gamepad2.b) && (precisionmodeb = true)){
+        } else if (gamepad2.b && precisionmodeb){
             precisionmodeb = false;
             precisionxb = (float) 1;
             precisionyb = (float) 1;
