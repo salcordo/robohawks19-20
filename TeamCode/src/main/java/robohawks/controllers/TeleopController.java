@@ -100,14 +100,14 @@ public class TeleopController extends Controller {
 
 
         //LIFT ARM
-        if(gamepad2.right_bumper){
+        if(gamepad2.right_trigger > 0){
             motorLift.setPower(-1);
         } else {
             motorLift.setPower(0);
         }
 
         //LOWER ARM
-        if(gamepad2.left_bumper){
+        if(gamepad2.left_trigger > 0){
             motorLift.setPower(1);
         } else {
             motorLift.setPower(0);
