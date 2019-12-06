@@ -86,6 +86,16 @@ public class TeleopController extends Controller {
             precisionya = (float) 1;
         }
 
+        //TOGGLE TEST
+        boolean a1Toggle = false;
+        if((gamepad1.a) && (a1Toggle == false)){
+            drive.setPowerOne(0.2);
+            a1Toggle = true;
+        } else if ((gamepad1.a) && (a1Toggle == true)){
+            drive.setPowerOne(0);
+            a1Toggle = false;
+        }
+
         //Raise ARM
         if(gamepad2.right_trigger > 0.5){
             motorLift.setPower(1);
