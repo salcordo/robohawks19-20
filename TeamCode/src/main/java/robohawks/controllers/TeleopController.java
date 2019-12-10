@@ -6,8 +6,6 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.Servo;
 import com.qualcomm.robotcore.util.Range;
 
-import java.util.concurrent.TimeUnit;
-
 import robohawks.controllers.old.Controller;
 import robohawks.modules.base.HolonomicDriveModule;
 
@@ -15,7 +13,10 @@ import robohawks.modules.base.HolonomicDriveModule;
 public class TeleopController extends Controller {
 
     HolonomicDriveModule drive;
-    DcMotor motorLift;
+    DcMotor motorRCurl;
+    DcMotor motorLCurl;
+    Servo servoLoaf;
+    Servo servoFoundation;
 
 
     float precisionxa = 1;
@@ -27,18 +28,15 @@ public class TeleopController extends Controller {
     @Override
     public void init() {
         drive = new HolonomicDriveModule(hardwareMap);
-        motorLift = hardwareMap.dcMotor.get("motorLift");
-
-        telemetry.addData("Arm Position", armposition);
+        motorRCurl = hardwareMap.dcMotor.get("motorRCurl");
+        motorLCurl = hardwareMap.dcMotor.get("motorLCurl");
+        servoFoundation = hardwareMap.servo.get("servoFoundation");
+        servoLoaf = hardwareMap.servo.get("servoLoaf");
     }
 
     @Override
     public void loop() {
         super.loop();
-
-        // RESET ENCODER
-        motorLift.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
-        motorLift.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
 
         // Drive
         float gamepad1LeftY = gamepad1.left_stick_y * precisionya;
@@ -64,8 +62,6 @@ public class TeleopController extends Controller {
         drive.setPowerFour(-BackRight/2);
 
 
-        //Toggle compliance wheels
-
         //EXAMPLE BUTTON
         //if(input){
         //  motor.setPower(value);
@@ -77,67 +73,48 @@ public class TeleopController extends Controller {
         //  servo.setPosition(0);
 
         //Toggle precision mode for primary driver (Controller 1)
-        boolean precisionmodea = false;
-        if(gamepad1.dpad_down){
+        boolean precision = false;
+        if((gamepad1.b) && (precision == false)){
             precisionxa = (float) 0.6;
             precisionya = (float) 0.4;
-        } else if (gamepad1.dpad_up){
+        } else if ((gamepad1.b) && (precision == true)){
             precisionxa = (float) 1;
             precisionya = (float) 1;
         }
 
-        //TOGGLE TEST
-        boolean a1Toggle = false;
-        if((gamepad1.a) && (a1Toggle == false)){
-            drive.setPowerOne(0.2);
-            a1Toggle = true;
-        } else if ((gamepad1.a) && (a1Toggle == true)){
-            drive.setPowerOne(0);
-            a1Toggle = false;
+        //Curl
+        if(gamepad2.left_bumper){
+            motorLCurl.setPower(1);
+            motorRCurl.setPower(-1);
+        }else{
+            motorLCurl.setPower(0);
+            motorRCurl.setPower(0);
         }
 
-        //Raise ARM
-        if(gamepad2.right_trigger > 0.5){
-            motorLift.setPower(1);
-        } else {
-            motorLift.setPower(0);
+        //Curl
+        if(gamepad2.right_bumper){
+            motorLCurl.setPower(-1);
+            motorRCurl.setPower(1);
+        }else{
+            motorLCurl.setPower(0);
+            motorRCurl.setPower(0);
         }
 
-        //Lower Arm
-        if(gamepad2.left_trigger > 0.5){
-            motorLift.setPower(-1);
-        } else {
-            motorLift.setPower(0);
+        //Servo Foundation
+        boolean loaf = false;
+        if((gamepad2.x) && (loaf == false)){
+            servoLoaf.setPosition(90);
+        } else if ((gamepad2.x) && (loaf == true)){
+            servoLoaf.setPosition(0);
         }
 
-        //GRIPPER
-
-
-        //GRIPPER PIVOT
-        if(gamepad1.left_bumper){
-
+        //Servo Foundation
+        boolean foundation = false;
+        if((gamepad2.y) && (foundation == false)){
+            servoFoundation.setPosition(90);
+        } else if ((gamepad2.y) && (foundation == true)){
+            servoFoundation.setPosition(0);
         }
-
-        //BRIDGE MODE CALIBRATE
-        armposition = motorLift.getCurrentPosition();
-        if(gamepad1.x || gamepad2.x){
-            armposition = motorLift.getCurrentPosition();
-        }
-        //Bridge Mode Reset
-        if(gamepad1.y || gamepad2.y){
-            motorLift.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-            motorLift.setTargetPosition(armposition);
-            motorLift.setPower(0.5);
-            try {
-                Thread.sleep(1000);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-            motorLift.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
-            motorLift.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
-        }
-
-
     }
 
 }
