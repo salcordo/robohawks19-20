@@ -37,6 +37,17 @@ public class TeleopController extends Controller {
     @Override
     public void loop() {
         super.loop();
+//CONTROLLER 1
+    //Left Stick:   Drive
+    //Right Stick:  Rotate
+    //B:            Precision Toggle
+    //DPAD:         Motor Test
+
+//CONTROLLER 2
+    //Left Bumper:  Curl
+    //Right Bumper: Curl
+    //X:            Loaf
+    //Y:            Foundation
 
         // Drive
         float gamepad1LeftY = gamepad1.left_stick_y * precisionya;
@@ -74,18 +85,23 @@ public class TeleopController extends Controller {
 
         //Toggle precision mode for primary driver (Controller 1)
         boolean precision = false;
-        if((gamepad1.b) && (precision == false)){
-            precisionxa = (float) 0.6;
-            precisionya = (float) 0.4;
-        } else if ((gamepad1.b) && (precision == true)){
-            precisionxa = (float) 1;
-            precisionya = (float) 1;
+        if(gamepad1.b && !precision){
+            if(precisionxa == 1) {
+                precisionya = (float) 0.4;
+                precisionxa = (float) 0.6;
+            } else {
+                precisionxa = (float) 1;
+                precisionya = (float) 1;
+                precision = true;
+            }
+        } else if (!gamepad1.b){
+            precision = false;
         }
 
         //Curl
         if(gamepad2.left_bumper){
             motorLCurl.setPower(1);
-            motorRCurl.setPower(-1);
+            motorRCurl.setPower(1);
         }else{
             motorLCurl.setPower(0);
             motorRCurl.setPower(0);
@@ -94,26 +110,51 @@ public class TeleopController extends Controller {
         //Curl
         if(gamepad2.right_bumper){
             motorLCurl.setPower(-1);
-            motorRCurl.setPower(1);
+            motorRCurl.setPower(-1);
         }else{
             motorLCurl.setPower(0);
             motorRCurl.setPower(0);
         }
 
-        //Servo Foundation
-        boolean loaf = false;
-        if((gamepad2.x) && (loaf == false)){
-            servoLoaf.setPosition(90);
-        } else if ((gamepad2.x) && (loaf == true)){
-            servoLoaf.setPosition(0);
-        }
+        //Servo Loaf
+        boolean loaf = false; //Outside of loop()
+        if(gamepad2.x && !loaf) {
+            if(servoLoaf.getPosition() == 0) servoLoaf.setPosition(90);
+            else servoLoaf.setPosition(0);
+            loaf = true;
+        } else if(!gamepad2.x) loaf = false;
 
         //Servo Foundation
-        boolean foundation = false;
-        if((gamepad2.y) && (foundation == false)){
-            servoFoundation.setPosition(90);
-        } else if ((gamepad2.y) && (foundation == true)){
-            servoFoundation.setPosition(0);
+        boolean foundation = false; //Outside of loop()
+        if(gamepad2.y && !foundation) {
+            if(servoFoundation.getPosition() == 0) servoFoundation.setPosition(90);
+            else servoFoundation.setPosition(0);
+            foundation = true;
+        } else if(!gamepad2.x) foundation = false;
+
+        //DPAD TESTING
+        if(gamepad1.dpad_up){
+            drive.setPowerOne(0.5);
+        } else {
+            drive.setPowerOne(0);
+        }
+
+        if(gamepad1.dpad_left){
+            drive.setPowerTwo(0.5);
+        } else {
+            drive.setPowerTwo(0);
+        }
+
+        if(gamepad1.dpad_right){
+            drive.setPowerThree(0.5);
+        } else {
+            drive.setPowerThree(0);
+        }
+
+        if(gamepad1.dpad_down){
+            drive.setPowerFour(0.5);
+        } else {
+            drive.setPowerFour(0);
         }
     }
 
