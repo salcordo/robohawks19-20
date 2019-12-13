@@ -12,17 +12,18 @@ import robohawks.modules.base.HolonomicDriveModule;
 @TeleOp(name = "TeleOp", group = "Teleop")
 public class TeleopController extends Controller {
 
+    //HARDWARE
     HolonomicDriveModule drive;
     DcMotor motorRCurl;
     DcMotor motorLCurl;
     Servo servoLoaf;
     Servo servoFoundation;
+    DcMotor motorRSuck;
+    DcMotor motorLSuck;
 
+    //VARIABLES
     float precisionxa = 1;
     float precisionya = 1;
-    float precisionxb = 1;
-    float precisionyb = 1;
-    int armposition;
     boolean precisionreset = true;
     boolean precisiontoggle = false;
     boolean loafreset = true;
@@ -38,6 +39,8 @@ public class TeleopController extends Controller {
         motorLCurl = hardwareMap.dcMotor.get("motorLCurl");
         servoFoundation = hardwareMap.servo.get("servoFoundation");
         servoLoaf = hardwareMap.servo.get("servoLoaf");
+        motorRSuck = hardwareMap.dcMotor.get("motorRSuck");
+        motorLSuck = hardwareMap.dcMotor.get("motorLSuck");
     }
 
     @Override
@@ -56,6 +59,7 @@ public class TeleopController extends Controller {
     //X:            Loaf
     //Y:            Foundation
     //B:            Bridge Reset
+    //A:            Toggle Compliance Wheels
 
         // Drive
         float gamepad1LeftY = gamepad1.left_stick_y * precisionya;
@@ -136,13 +140,12 @@ public class TeleopController extends Controller {
         if(!gamepad2.y){
             foundationreset = true;
         }
-
-        if(foundationtoggle){
-            servoFoundation.setPosition(0);
-        }
         if(!foundationtoggle){
             servoFoundation.setPosition(90);
+        }else{
+            servoFoundation.setPosition(0);
         }
+
         //Servo Loaf
         if(gamepad2.x && loafreset){
             loaftoggle = !loaftoggle;
@@ -152,13 +155,12 @@ public class TeleopController extends Controller {
         if(!gamepad2.x){
             loafreset = true;
         }
-
-        if(loaftoggle){
-            servoLoaf.setPosition(0);
-        }
         if(!loaftoggle){
             servoLoaf.setPosition(90);
+        }else{
+            servoLoaf.setPosition(0);
         }
+
 
         //BRIDGE RESET
         if(gamepad2.b){
@@ -189,6 +191,23 @@ public class TeleopController extends Controller {
             drive.setPowerFour(1);
         } else {
             drive.setPowerFour(0);
+        }
+
+        //blockSucker
+        if(gamepad2.left_trigger > 0.5) {
+            motorLSuck.setPower(1);
+            motorRSuck.setPower(-1);
+        } else {
+            motorLSuck.setPower(0);
+            motorRSuck.setPower(0);
+        }
+
+        if(gamepad2.right_trigger > 0.5) {
+            motorLSuck.setPower(-1);
+            motorRSuck.setPower(1);
+        } else {
+            motorLSuck.setPower(0);
+            motorRSuck.setPower(0);
         }
     }
 }
