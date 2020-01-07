@@ -143,7 +143,7 @@ public class TeleopController extends Controller {
         if(!foundationtoggle){
             servoFoundation.setPosition(90);
         }else{
-            servoFoundation.setPosition(0);
+            servoFoundation.setPosition(45);
         }
 
         //Servo Loaf
