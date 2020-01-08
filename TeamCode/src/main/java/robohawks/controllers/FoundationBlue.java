@@ -62,6 +62,7 @@ public class FoundationBlue extends LinearOpMode {
             drive.setPowerTwo(0);
             drive.setPowerThree(0);
             drive.setPowerFour(0);
+            sleep(150);
 
             //FORWARD
             drive.setPowerOne(1);
@@ -73,6 +74,7 @@ public class FoundationBlue extends LinearOpMode {
             drive.setPowerTwo(0);
             drive.setPowerThree(0);
             drive.setPowerFour(0);
+            sleep(150);
 
             //RIGHT
             drive.setPowerOne(-1);
@@ -84,24 +86,79 @@ public class FoundationBlue extends LinearOpMode {
             drive.setPowerTwo(0);
             drive.setPowerThree(0);
             drive.setPowerFour(0);
+            sleep(150);
 
             //TURN LEFT
+            drive.setPowerOne(-1);
+            drive.setPowerTwo(-1);
+            drive.setPowerThree(1);
+            drive.setPowerFour(1);
+            sleep(1000);
+            drive.setPowerOne(0);
+            drive.setPowerTwo(0);
+            drive.setPowerThree(0);
+            drive.setPowerFour(0);
+            sleep(150);
 
             //LEFT
+            drive.setPowerOne(-1);
+            drive.setPowerTwo(1);
+            drive.setPowerThree(-1);
+            drive.setPowerFour(1);
+            sleep(1000);
+            drive.setPowerOne(0);
+            drive.setPowerTwo(0);
+            drive.setPowerThree(0);
+            drive.setPowerFour(0);
+            sleep(150);
 
             //RECOGNIZE
 
             //Go to brick
 
             //PICK UP BRICK
+            servoLoaf.setPosition(45);
+            sleep(250);
 
             //RIGHT
+            drive.setPowerOne(-1);
+            drive.setPowerTwo(1);
+            drive.setPowerThree(-1);
+            drive.setPowerFour(1);
+            sleep(1000);
+            drive.setPowerOne(0);
+            drive.setPowerTwo(0);
+            drive.setPowerThree(0);
+            drive.setPowerFour(0);
+            sleep(150);
 
             //FORWARD
+            drive.setPowerOne(1);
+            drive.setPowerTwo(1);
+            drive.setPowerThree(1);
+            drive.setPowerFour(1);
+            sleep(1000);
+            drive.setPowerOne(0);
+            drive.setPowerTwo(0);
+            drive.setPowerThree(0);
+            drive.setPowerFour(0);
+            sleep(150);
 
             //Drop brick
+            servoLoaf.setPosition(90);
+            sleep(250);
 
             //BACKWARDS
+            drive.setPowerOne(-1);
+            drive.setPowerTwo(-1);
+            drive.setPowerThree(-1);
+            drive.setPowerFour(-1);
+            sleep(1000);
+            drive.setPowerOne(0);
+            drive.setPowerTwo(0);
+            drive.setPowerThree(0);
+            drive.setPowerFour(0);
+            sleep(150);
 
 
 
