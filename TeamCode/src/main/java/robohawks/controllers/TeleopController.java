@@ -24,12 +24,15 @@ public class TeleopController extends Controller {
     //VARIABLES
     float precisionxa = 1;
     float precisionya = 1;
+    float succprecision = 1;
     boolean precisionreset = true;
     boolean precisiontoggle = false;
     boolean loafreset = true;
     boolean loaftoggle = false;
     boolean foundationreset = true;
     boolean foundationtoggle = false;
+    boolean succreset = true;
+    boolean succtoggle = false;
 
 
     @Override
@@ -59,7 +62,10 @@ public class TeleopController extends Controller {
     //X:            Loaf
     //Y:            Foundation
     //B:            Bridge Reset
-    //A:            Toggle Compliance Wheels
+    //A:            Toggle Compliance precision
+    //Left Trigger: Eject Brick
+    //Right Trigger:Suck Brick
+
 
         // Drive
         float gamepad1LeftY = gamepad1.left_stick_y * precisionya;
@@ -194,14 +200,31 @@ public class TeleopController extends Controller {
         }
 
         //blockSucker
+        //Precision
+        if(gamepad2.a && succreset){
+            succtoggle = !succtoggle;
+            succreset = false;
+        }
+
+        if(!gamepad2.a){
+            succreset = true;
+        }
+        if(!succtoggle){
+            succprecision = (float) 0.25;
+        }else{
+            succprecision = (float) 1;
+        }
+
+        //Spit out
         if(gamepad2.left_trigger > 0.5) {
-            motorLSuck.setPower(1);
-            motorRSuck.setPower(-1);
+            motorLSuck.setPower(1 * succprecision);
+            motorRSuck.setPower(-1 * succprecision);
         } else {
             motorLSuck.setPower(0);
             motorRSuck.setPower(0);
         }
 
+        //Suck in
         if(gamepad2.right_trigger > 0.5) {
             motorLSuck.setPower(-1);
             motorRSuck.setPower(1);
