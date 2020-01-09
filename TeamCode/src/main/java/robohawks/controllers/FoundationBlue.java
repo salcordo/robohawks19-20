@@ -61,19 +61,26 @@ public class FoundationBlue extends LinearOpMode {
         time.reset();
 
 
-        while (time.seconds() < 0.5 && opModeIsActive()) {
+        while (opModeIsActive()) {
+
+            //FOUNDATION
+            servoFoundation.setPosition(90);
 
             //BACK
             drive.setPowerOne(-1);
             drive.setPowerTwo(-1);
             drive.setPowerThree(-1);
             drive.setPowerFour(-1);
-            sleep(1000);
+            sleep(475);
             drive.setPowerOne(0);
             drive.setPowerTwo(0);
             drive.setPowerThree(0);
             drive.setPowerFour(0);
-            sleep(150);
+            sleep(300);
+
+            //FOUNDATION
+            servoFoundation.setPosition(0);
+            sleep(300);
 
             //FORWARD
             drive.setPowerOne(1);
@@ -85,19 +92,35 @@ public class FoundationBlue extends LinearOpMode {
             drive.setPowerTwo(0);
             drive.setPowerThree(0);
             drive.setPowerFour(0);
-            sleep(150);
+            sleep(300);
+
+            //FOUNDATION
+            servoFoundation.setPosition(90);
+            sleep(300);
 
             //RIGHT
             drive.setPowerOne(-1);
             drive.setPowerTwo(1);
             drive.setPowerThree(-1);
             drive.setPowerFour(1);
-            sleep(1000);
+            sleep(2000);
             drive.setPowerOne(0);
             drive.setPowerTwo(0);
             drive.setPowerThree(0);
             drive.setPowerFour(0);
-            sleep(150);
+            sleep(300);
+
+            //BACK
+            drive.setPowerOne(-1);
+            drive.setPowerTwo(-1);
+            drive.setPowerThree(-1);
+            drive.setPowerFour(-1);
+            sleep(250);
+            drive.setPowerOne(0);
+            drive.setPowerTwo(0);
+            drive.setPowerThree(0);
+            drive.setPowerFour(0);
+            sleep(300);
 
             //TURN LEFT
             drive.setPowerOne(-1);
@@ -109,21 +132,25 @@ public class FoundationBlue extends LinearOpMode {
             drive.setPowerTwo(0);
             drive.setPowerThree(0);
             drive.setPowerFour(0);
-            sleep(150);
+            sleep(300);
 
-            //LEFT
+            //BACKWARD
             drive.setPowerOne(-1);
-            drive.setPowerTwo(1);
+            drive.setPowerTwo(-1);
             drive.setPowerThree(-1);
-            drive.setPowerFour(1);
-            sleep(1000);
+            drive.setPowerFour(-1);
+            sleep(500);
             drive.setPowerOne(0);
             drive.setPowerTwo(0);
             drive.setPowerThree(0);
             drive.setPowerFour(0);
-            sleep(150);
+            sleep(300);
 
-            //RECOGNIZE
+            //RECOGNIZE SCAN
+
+            //ASSIGN BRICKS
+
+            //BRICKS(1-6) MOVEMENT
             runningscan = true;
             while(runningscan == true){
                 //Jonathan

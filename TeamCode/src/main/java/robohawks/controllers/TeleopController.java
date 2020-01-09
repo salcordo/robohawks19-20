@@ -66,7 +66,6 @@ public class TeleopController extends Controller {
     //Left Trigger: Eject Brick
     //Right Trigger:Suck Brick
 
-
         // Drive
         float gamepad1LeftY = gamepad1.left_stick_y * precisionya;
         float gamepad1LeftX = -gamepad1.left_stick_x * precisionxa;
@@ -149,7 +148,7 @@ public class TeleopController extends Controller {
         if(!foundationtoggle){
             servoFoundation.setPosition(90);
         }else{
-            servoFoundation.setPosition(45  );
+            servoFoundation.setPosition(0);
         }
 
         //Servo Loaf
