@@ -149,7 +149,7 @@ public class TeleopController extends Controller {
         if(!foundationtoggle){
             servoFoundation.setPosition(90);
         }else{
-            servoFoundation.setPosition(45);
+            servoFoundation.setPosition(45  );
         }
 
         //Servo Loaf
@@ -199,35 +199,19 @@ public class TeleopController extends Controller {
             drive.setPowerFour(0);
         }
 
-        //blockSucker
-        //Precision
-        if(gamepad2.a && succreset){
-            succtoggle = !succtoggle;
-            succreset = false;
-        }
-
-        if(!gamepad2.a){
-            succreset = true;
-        }
-        if(!succtoggle){
-            succprecision = (float) 0.25;
-        }else{
-            succprecision = (float) 1;
-        }
-
         //Spit out
-        if(gamepad2.left_trigger > 0.5) {
-            motorLSuck.setPower(1 * succprecision);
-            motorRSuck.setPower(-1 * succprecision);
+        if(gamepad2.left_trigger > 0) {
+            motorLSuck.setPower(gamepad2.left_trigger);
+            motorRSuck.setPower(-1 * gamepad2.left_trigger);
         } else {
             motorLSuck.setPower(0);
             motorRSuck.setPower(0);
         }
 
         //Suck in
-        if(gamepad2.right_trigger > 0.5) {
-            motorLSuck.setPower(-1);
-            motorRSuck.setPower(1);
+        if(gamepad2.right_trigger > 0) {
+            motorLSuck.setPower(-1 * gamepad2.right_trigger);
+            motorRSuck.setPower(gamepad2.right_trigger);
         } else {
             motorLSuck.setPower(0);
             motorRSuck.setPower(0);

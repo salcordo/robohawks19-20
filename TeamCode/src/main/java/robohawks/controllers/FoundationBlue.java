@@ -27,6 +27,16 @@ public class FoundationBlue extends LinearOpMode {
     DcMotor motorRSuck;
     DcMotor motorLSuck;
     ElapsedTime time;
+    int jonathan = 0;
+    int joseph = 0;
+    int jotaro = 0;
+    int josuke = 0;
+    int giorno = 0;
+    int jolyne = 0;
+    boolean active = false;
+    boolean underbridge = false;
+    boolean runningscan = false;
+    int scancount = 0;
 
     @Override
     public void runOpMode() {
@@ -41,6 +51,7 @@ public class FoundationBlue extends LinearOpMode {
         motorRSuck = hardwareMap.dcMotor.get("motorRSuck");
         motorLSuck = hardwareMap.dcMotor.get("motorLSuck");
         time = new ElapsedTime();
+
 
         waitForStart();
 
@@ -113,55 +124,132 @@ public class FoundationBlue extends LinearOpMode {
             sleep(150);
 
             //RECOGNIZE
+            runningscan = true;
+            while(runningscan == true){
+                //Jonathan
+                if(jonathan == 1 && !active){
+                    active = true;
 
-            //Go to brick
+                    //MOVE TO BRICK
+                    //LEFT
+                    drive.setPowerOne(-1);
+                    drive.setPowerTwo(1);
+                    drive.setPowerThree(-1);
+                    drive.setPowerFour(1);
+                    sleep(1000);
+                    drive.setPowerOne(0);
+                    drive.setPowerTwo(0);
+                    drive.setPowerThree(0);
+                    drive.setPowerFour(0);
+                    sleep(150);
 
-            //PICK UP BRICK
-            servoLoaf.setPosition(45);
-            sleep(250);
+                    //BACK
+                    drive.setPowerOne(-1);
+                    drive.setPowerTwo(-1);
+                    drive.setPowerThree(-1);
+                    drive.setPowerFour(-1);
+                    sleep(1000);
+                    drive.setPowerOne(0);
+                    drive.setPowerTwo(0);
+                    drive.setPowerThree(0);
+                    drive.setPowerFour(0);
+                    sleep(150);
 
-            //RIGHT
-            drive.setPowerOne(-1);
-            drive.setPowerTwo(1);
-            drive.setPowerThree(-1);
-            drive.setPowerFour(1);
-            sleep(1000);
-            drive.setPowerOne(0);
-            drive.setPowerTwo(0);
-            drive.setPowerThree(0);
-            drive.setPowerFour(0);
-            sleep(150);
+                    //PICK UP BRICK
+                    servoLoaf.setPosition(45);
+                    sleep(250);
 
-            //FORWARD
-            drive.setPowerOne(1);
-            drive.setPowerTwo(1);
-            drive.setPowerThree(1);
-            drive.setPowerFour(1);
-            sleep(1000);
-            drive.setPowerOne(0);
-            drive.setPowerTwo(0);
-            drive.setPowerThree(0);
-            drive.setPowerFour(0);
-            sleep(150);
+                    //MOVE TO COMMON END
+                    //RIGHT
+                    drive.setPowerOne(-1);
+                    drive.setPowerTwo(1);
+                    drive.setPowerThree(-1);
+                    drive.setPowerFour(1);
+                    sleep(1000);
+                    drive.setPowerOne(0);
+                    drive.setPowerTwo(0);
+                    drive.setPowerThree(0);
+                    drive.setPowerFour(0);
+                    sleep(150);
 
-            //Drop brick
-            servoLoaf.setPosition(90);
-            sleep(250);
+                    //FORWARD
+                    drive.setPowerOne(1);
+                    drive.setPowerTwo(1);
+                    drive.setPowerThree(1);
+                    drive.setPowerFour(1);
+                    sleep(1000);
+                    drive.setPowerOne(0);
+                    drive.setPowerTwo(0);
+                    drive.setPowerThree(0);
+                    drive.setPowerFour(0);
+                    sleep(150);
 
-            //BACKWARDS
-            drive.setPowerOne(-1);
-            drive.setPowerTwo(-1);
-            drive.setPowerThree(-1);
-            drive.setPowerFour(-1);
-            sleep(1000);
-            drive.setPowerOne(0);
-            drive.setPowerTwo(0);
-            drive.setPowerThree(0);
-            drive.setPowerFour(0);
-            sleep(150);
+                    //TAKE BRICK UNDER BRIDGE
+                    underbridge = true;
+                }
 
+                //Joseph
+                if(joseph == 1 && !active){
 
+                }
 
+                //Jotaro
+                if(jotaro == 1){
+
+                }
+
+                //Josuke
+                if(josuke == 1){
+
+                }
+
+                //Giorno
+                if(giorno == 1){
+
+                }
+
+                //Jolyne
+                if(jonathan == 1){
+
+                }
+
+                //GO UNDER BRIDGE
+                if(underbridge == true){
+                    //FORWARD
+                    drive.setPowerOne(1);
+                    drive.setPowerTwo(1);
+                    drive.setPowerThree(1);
+                    drive.setPowerFour(1);
+                    sleep(1000);
+                    drive.setPowerOne(0);
+                    drive.setPowerTwo(0);
+                    drive.setPowerThree(0);
+                    drive.setPowerFour(0);
+                    sleep(150);
+
+                    //Drop brick
+                    servoLoaf.setPosition(90);
+                    sleep(250);
+
+                    //BACKWARDS
+                    drive.setPowerOne(-1);
+                    drive.setPowerTwo(-1);
+                    drive.setPowerThree(-1);
+                    drive.setPowerFour(-1);
+                    sleep(1000);
+                    drive.setPowerOne(0);
+                    drive.setPowerTwo(0);
+                    drive.setPowerThree(0);
+                    drive.setPowerFour(0);
+                    sleep(150);
+                    underbridge = false;
+                    scancount = scancount + 1;
+                }
+
+                if(scancount == 2){
+                    runningscan = false;
+                }
+            }
         }
     }
 }
