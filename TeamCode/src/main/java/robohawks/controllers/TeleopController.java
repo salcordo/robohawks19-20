@@ -100,6 +100,18 @@ public class TeleopController extends Controller {
         //  servo.setPower(0);
         //  servo.setPosition(0);
 
+        if(gamepad2.dpad_down){
+            drive.setPowerOne(-1);
+            drive.setPowerTwo(1);
+            drive.setPowerThree(1);
+            drive.setPowerFour(-1);
+        } else {
+            drive.setPowerOne(0);
+            drive.setPowerTwo(0);
+            drive.setPowerThree(0);
+            drive.setPowerFour(0);
+        }
+
         //Toggle precision mode for primary driver (Controller 1)
         if(gamepad1.b && precisionreset){
             precisiontoggle = !precisiontoggle;
