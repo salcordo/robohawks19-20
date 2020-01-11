@@ -211,6 +211,7 @@ MERGED from [:Blocks-release:] C:\Users\BHHS Robotics Team\.gradle\caches\transf
 		ADDED from [:RobotCore-release:] C:\Users\BHHS Robotics Team\.gradle\caches\transforms-1\files-1.1\RobotCore-release.aar\2ab709c1571d2e49e3c01202fc265392\AndroidManifest.xml:28:9-65
 uses-permission#android.permission.READ_EXTERNAL_STORAGE
 ADDED from [:RobotCore-release:] C:\Users\BHHS Robotics Team\.gradle\caches\transforms-1\files-1.1\RobotCore-release.aar\2ab709c1571d2e49e3c01202fc265392\AndroidManifest.xml:30:5-32:35
+IMPLIED from C:\Users\BHHS Robotics Team\Desktop\Git\robohawks19-20\TeamCode\src\main\AndroidManifest.xml:8:1-12:12 reason: com.qualcomm.robotcore requested WRITE_EXTERNAL_STORAGE
 MERGED from [:FtcCommon-release:] C:\Users\BHHS Robotics Team\.gradle\caches\transforms-1\files-1.1\FtcCommon-release.aar\2d6c38d66960fe4be6c7cc7b1b49f77e\AndroidManifest.xml:16:5-18:35
 MERGED from [:FtcCommon-release:] C:\Users\BHHS Robotics Team\.gradle\caches\transforms-1\files-1.1\FtcCommon-release.aar\2d6c38d66960fe4be6c7cc7b1b49f77e\AndroidManifest.xml:16:5-18:35
 MERGED from [:Blocks-release:] C:\Users\BHHS Robotics Team\.gradle\caches\transforms-1\files-1.1\Blocks-release.aar\fbc328728c10581077b75f54923351c1\AndroidManifest.xml:14:5-16:35

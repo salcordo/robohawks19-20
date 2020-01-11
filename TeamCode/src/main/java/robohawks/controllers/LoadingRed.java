@@ -58,7 +58,7 @@ public class LoadingRed extends LinearOpMode {
             sleep(150);
 
             //Left
-            drive.setPowerOne(1* poweradjust);
+            drive.setPowerOne(1 * poweradjust);
             drive.setPowerTwo(-1* poweradjust);
             drive.setPowerThree(1 * poweradjust);
             drive.setPowerFour(-1 * poweradjust);
