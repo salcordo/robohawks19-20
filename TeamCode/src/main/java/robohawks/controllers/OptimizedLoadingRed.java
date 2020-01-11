@@ -8,7 +8,7 @@ import com.qualcomm.robotcore.util.ElapsedTime;
 
 import robohawks.modules.base.HolonomicDriveModule;
 
-@Autonomous(name = "FoundationBlue")
+@Autonomous(name = "OptimizedLoadingRed")
 public class OptimizedLoadingRed extends LinearOpMode {
 
     HolonomicDriveModule drive;

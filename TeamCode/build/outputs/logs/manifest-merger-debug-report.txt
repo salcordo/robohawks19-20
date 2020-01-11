@@ -13,6 +13,7 @@ MERGED from [:WirelessP2p-release:] C:\Users\BHHS Robotics Team\.gradle\caches\t
 MERGED from [:tfod-release:] C:\Users\BHHS Robotics Team\.gradle\caches\transforms-1\files-1.1\tfod-release.aar\4fc897759ed09924d785bf2260992d47\AndroidManifest.xml:2:1-11:12
 MERGED from [:tensorflow-lite-0.0.0-nightly:] C:\Users\BHHS Robotics Team\.gradle\caches\transforms-1\files-1.1\tensorflow-lite-0.0.0-nightly.aar\74513c62e773c78a242566750aadc2ae\AndroidManifest.xml:2:1-6:12
 MERGED from [:openCVLibrary3] C:\Users\BHHS Robotics Team\Desktop\Git\robohawks19-20\openCVLibrary3\build\intermediates\manifests\full\debug\AndroidManifest.xml:2:1-11:12
+MERGED from [org.openftc:rev-extensions-2:1.2] C:\Users\BHHS Robotics Team\.gradle\caches\transforms-1\files-1.1\rev-extensions-2-1.2.aar\02815511329a7adc67afdb6e547c2140\AndroidManifest.xml:2:1-12:12
 MERGED from [:Inspection-release:] C:\Users\BHHS Robotics Team\.gradle\caches\transforms-1\files-1.1\Inspection-release.aar\6336cb1f94cf4d75e83036ca11ec4a51\AndroidManifest.xml:2:1-32:12
 MERGED from [:Blocks-release:] C:\Users\BHHS Robotics Team\.gradle\caches\transforms-1\files-1.1\Blocks-release.aar\fbc328728c10581077b75f54923351c1\AndroidManifest.xml:2:1-41:12
 INJECTED from C:\Users\BHHS Robotics Team\Desktop\Git\robohawks19-20\TeamCode\src\main\AndroidManifest.xml:8:1-12:12
@@ -82,6 +83,8 @@ MERGED from [:tfod-release:] C:\Users\BHHS Robotics Team\.gradle\caches\transfor
 MERGED from [:tfod-release:] C:\Users\BHHS Robotics Team\.gradle\caches\transforms-1\files-1.1\tfod-release.aar\4fc897759ed09924d785bf2260992d47\AndroidManifest.xml:7:5-9:41
 MERGED from [:openCVLibrary3] C:\Users\BHHS Robotics Team\Desktop\Git\robohawks19-20\openCVLibrary3\build\intermediates\manifests\full\debug\AndroidManifest.xml:7:5-9:41
 MERGED from [:openCVLibrary3] C:\Users\BHHS Robotics Team\Desktop\Git\robohawks19-20\openCVLibrary3\build\intermediates\manifests\full\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [org.openftc:rev-extensions-2:1.2] C:\Users\BHHS Robotics Team\.gradle\caches\transforms-1\files-1.1\rev-extensions-2-1.2.aar\02815511329a7adc67afdb6e547c2140\AndroidManifest.xml:8:5-10:41
+MERGED from [org.openftc:rev-extensions-2:1.2] C:\Users\BHHS Robotics Team\.gradle\caches\transforms-1\files-1.1\rev-extensions-2-1.2.aar\02815511329a7adc67afdb6e547c2140\AndroidManifest.xml:8:5-10:41
 MERGED from [:Inspection-release:] C:\Users\BHHS Robotics Team\.gradle\caches\transforms-1\files-1.1\Inspection-release.aar\6336cb1f94cf4d75e83036ca11ec4a51\AndroidManifest.xml:7:5-9:41
 MERGED from [:Inspection-release:] C:\Users\BHHS Robotics Team\.gradle\caches\transforms-1\files-1.1\Inspection-release.aar\6336cb1f94cf4d75e83036ca11ec4a51\AndroidManifest.xml:7:5-9:41
 MERGED from [:Blocks-release:] C:\Users\BHHS Robotics Team\.gradle\caches\transforms-1\files-1.1\Blocks-release.aar\fbc328728c10581077b75f54923351c1\AndroidManifest.xml:7:5-9:41
