@@ -211,9 +211,12 @@ public class TeleopController extends Controller {
         }
 
         //Spit out
-        if(gamepad2.left_trigger > 0) {
+        if(gamepad2.left_trigger > 0 && gamepad2.left_trigger < 0.75) {
             motorLSuck.setPower(gamepad2.left_trigger);
             motorRSuck.setPower(-1 * gamepad2.left_trigger);
+        } else if(gamepad2.left_trigger >= 0.75) {
+            motorLSuck.setPower(0.75);
+            motorRSuck.setPower(-0.75);
         } else {
             motorLSuck.setPower(0);
             motorRSuck.setPower(0);
@@ -226,6 +229,33 @@ public class TeleopController extends Controller {
         } else {
             motorLSuck.setPower(0);
             motorRSuck.setPower(0);
+        }
+
+        //STRAFE LEFT
+        if(gamepad1.dpad_left){
+            drive.setPowerOne(1);
+            drive.setPowerTwo(-1);
+            drive.setPowerThree(1);
+            drive.setPowerFour(-1);
+        } else {
+            drive.setPowerOne(0);
+            drive.setPowerTwo(0);
+            drive.setPowerThree(0);
+            drive.setPowerFour(0);
+        }
+
+
+        //STRAFE RIGHT
+        if(gamepad1.dpad_left){
+            drive.setPowerOne(-1);
+            drive.setPowerTwo(1);
+            drive.setPowerThree(-1);
+            drive.setPowerFour(1);
+        } else {
+            drive.setPowerOne(0);
+            drive.setPowerTwo(0);
+            drive.setPowerThree(0);
+            drive.setPowerFour(0);
         }
     }
 }

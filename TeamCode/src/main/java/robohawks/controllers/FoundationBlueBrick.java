@@ -11,8 +11,8 @@ import org.openftc.revextensions2.ExpansionHubEx;
 
 import robohawks.modules.base.HolonomicDriveModule;
 
-@Autonomous(name = "FoundationBlue")
-public class FoundationBlue extends LinearOpMode {
+@Autonomous(name = "FoundationBlueBrick")
+public class FoundationBlueBrick extends LinearOpMode {
 
     HolonomicDriveModule drive;
     DcMotor motorRCurl;
@@ -91,7 +91,7 @@ public class FoundationBlue extends LinearOpMode {
             drive.setPowerTwo(0);
             drive.setPowerThree(0);
             drive.setPowerFour(0);
-            sleep(300);
+            sleep(500);
 
             //FOUNDATION
             servoFoundation.setPosition(0);
@@ -102,7 +102,7 @@ public class FoundationBlue extends LinearOpMode {
             drive.setPowerTwo(0.5);
             drive.setPowerThree(0.5);
             drive.setPowerFour(0.5);
-            sleep(4000);
+            sleep(3200);
             drive.setPowerOne(0);
             drive.setPowerTwo(0);
             drive.setPowerThree(0);
@@ -130,7 +130,7 @@ public class FoundationBlue extends LinearOpMode {
             drive.setPowerTwo(-0.95 * poweradjust);
             drive.setPowerThree(0.95 * poweradjust);
             drive.setPowerFour(-0.95 * poweradjust);
-            sleep(1300);
+            sleep(1500);
             drive.setPowerOne(0);
             drive.setPowerTwo(0);
             drive.setPowerThree(0);
@@ -166,50 +166,17 @@ public class FoundationBlue extends LinearOpMode {
             drive.setPowerTwo(-0.5 * poweradjust);
             drive.setPowerThree(-0.5 * poweradjust);
             drive.setPowerFour(-0.5 * poweradjust);
-            sleep(500);
+            sleep(1000);
             drive.setPowerOne(0);
             drive.setPowerTwo(0);
             drive.setPowerThree(0);
             drive.setPowerFour(0);
             sleep(300);
 
-            //FOUNDATION
-            servoFoundation.setPosition(0);
-            sleep(600);
-
-            //TURN LEFT
-            drive.setPowerOne(-0.7 * poweradjust);
-            drive.setPowerTwo(0.7 * poweradjust);
-            drive.setPowerThree(0.7 * poweradjust);
-            drive.setPowerFour(-0.7 * poweradjust);
-            sleep(600);
-            drive.setPowerOne(0);
-            drive.setPowerTwo(0);
-            drive.setPowerThree(0);
-            drive.setPowerFour(0);
-            sleep(300);
-
-            //BACK
             drive.setPowerOne(-0.6 * poweradjust);
             drive.setPowerTwo(-0.6 * poweradjust);
             drive.setPowerThree(-0.6 * poweradjust);
             drive.setPowerFour(-0.6 * poweradjust);
-            sleep(500);
-            drive.setPowerOne(0);
-            drive.setPowerTwo(0);
-            drive.setPowerThree(0);
-            drive.setPowerFour(0);
-            sleep(300);
-
-            //FOUNDATION
-            servoFoundation.setPosition(90);
-            sleep(300);
-
-            //TURN RIGHT
-            drive.setPowerOne(0.75 * poweradjust);
-            drive.setPowerTwo(-0.75 * poweradjust);
-            drive.setPowerThree(-0.75 * poweradjust);
-            drive.setPowerFour(0.75 * poweradjust);
             sleep(200);
             drive.setPowerOne(0);
             drive.setPowerTwo(0);
@@ -218,11 +185,119 @@ public class FoundationBlue extends LinearOpMode {
             sleep(300);
 
             //Lower SUCK arm
-            motorLCurl.setPower(-0.2);
-            motorRCurl.setPower(-0.2);
-            sleep(500);
+            motorLCurl.setPower(-0.5);
+            motorRCurl.setPower(-0.5);
+            sleep(1000);
             motorLCurl.setPower(0);
             motorRCurl.setPower(0);
+            sleep(300);
+
+            //FORWARD
+            drive.setPowerOne(0.6 * poweradjust);
+            drive.setPowerTwo(0.6 * poweradjust);
+            drive.setPowerThree(0.6 * poweradjust);
+            drive.setPowerFour(0.6 * poweradjust);
+            sleep(1050);
+            drive.setPowerOne(0);
+            drive.setPowerTwo(0);
+            drive.setPowerThree(0);
+            drive.setPowerFour(0);
+            sleep(300);
+
+            //TURN LEFT
+            drive.setPowerOne(-0.75 * poweradjust);
+            drive.setPowerTwo(0.75 * poweradjust);
+            drive.setPowerThree(0.75 * poweradjust);
+            drive.setPowerFour(-0.75 * poweradjust);
+            sleep(350);
+            drive.setPowerOne(0);
+            drive.setPowerTwo(0);
+            drive.setPowerThree(0);
+            drive.setPowerFour(0);
+            sleep(300);
+
+            //FORWARD
+            drive.setPowerOne(0.8 * poweradjust);
+            drive.setPowerTwo(0.8 * poweradjust);
+            drive.setPowerThree(0.8 * poweradjust);
+            drive.setPowerFour(0.8 * poweradjust);
+            motorRSuck.setPower(1);
+            motorLSuck.setPower(-1);
+            sleep(700);
+            drive.setPowerOne(0);
+            drive.setPowerTwo(0);
+            drive.setPowerThree(0);
+            drive.setPowerFour(0);
+            sleep(500);
+
+            //BACK
+            drive.setPowerOne(-0.6 * poweradjust);
+            drive.setPowerTwo(-0.6 * poweradjust);
+            drive.setPowerThree(-0.6 * poweradjust);
+            drive.setPowerFour(-0.6 * poweradjust);
+            sleep(300);
+            drive.setPowerOne(0);
+            drive.setPowerTwo(0);
+            drive.setPowerThree(0);
+            drive.setPowerFour(0);
+            sleep(300);
+
+            //TURN RIGHT
+            drive.setPowerOne(0.75 * poweradjust);
+            drive.setPowerTwo(-0.75 * poweradjust);
+            drive.setPowerThree(-0.75 * poweradjust);
+            drive.setPowerFour(0.75 * poweradjust);
+            sleep(450);
+            drive.setPowerOne(0);
+            drive.setPowerTwo(0);
+            drive.setPowerThree(0);
+            drive.setPowerFour(0);
+            sleep(300);
+
+            //BACK
+            drive.setPowerOne(-0.8 * poweradjust);
+            drive.setPowerTwo(-0.8 * poweradjust);
+            drive.setPowerThree(-0.8 * poweradjust);
+            drive.setPowerFour(-0.8 * poweradjust);
+            sleep(1500);
+            drive.setPowerOne(0);
+            drive.setPowerTwo(0);
+            drive.setPowerThree(0);
+            drive.setPowerFour(0);
+            sleep(300);
+
+            //TURN LEFT
+            drive.setPowerOne(-0.75 * poweradjust);
+            drive.setPowerTwo(0.75 * poweradjust);
+            drive.setPowerThree(0.75 * poweradjust);
+            drive.setPowerFour(-0.75 * poweradjust);
+            motorRSuck.setPower(0);
+            motorLSuck.setPower(0);
+            sleep(1300);
+            drive.setPowerOne(0);
+            drive.setPowerTwo(0);
+            drive.setPowerThree(0);
+            drive.setPowerFour(0);
+            sleep(300);
+
+            //RAISE ARM
+            motorLCurl.setPower(1);
+            motorRCurl.setPower(1);
+            sleep(400);
+            motorLCurl.setPower(0);
+            motorRCurl.setPower(0);
+            sleep(300);
+
+            //TURN LEFT
+            drive.setPowerOne(-0.75 * poweradjust);
+            drive.setPowerTwo(0.75 * poweradjust);
+            drive.setPowerThree(0.75 * poweradjust);
+            drive.setPowerFour(-0.75 * poweradjust);
+            sleep(250);
+            drive.setPowerOne(0);
+            drive.setPowerTwo(0);
+            drive.setPowerThree(0);
+            drive.setPowerFour(0);
             sleep(300);
 
             //FORWARD
@@ -230,7 +305,52 @@ public class FoundationBlue extends LinearOpMode {
             drive.setPowerTwo(0.5 * poweradjust);
             drive.setPowerThree(0.5 * poweradjust);
             drive.setPowerFour(0.5 * poweradjust);
-            sleep(600);
+            sleep(400);
+            drive.setPowerOne(0);
+            drive.setPowerTwo(0);
+            drive.setPowerThree(0);
+            drive.setPowerFour(0);
+            sleep(300);
+
+            //EJECT BRICK
+            motorRSuck.setPower(-0.3);
+            motorLSuck.setPower(0.3);
+            sleep(300);
+            drive.setPowerOne(0);
+            drive.setPowerTwo(0);
+            drive.setPowerThree(0);
+            drive.setPowerFour(0);
+            motorRSuck.setPower(0);
+            motorLSuck.setPower(0);
+            sleep(300);
+
+            //BACK
+            drive.setPowerOne(-0.5 * poweradjust);
+            drive.setPowerTwo(-0.5 * poweradjust);
+            drive.setPowerThree(-0.5 * poweradjust);
+            drive.setPowerFour(-0.5 * poweradjust);
+            sleep(300);
+            drive.setPowerOne(0);
+            drive.setPowerTwo(0);
+            drive.setPowerThree(0);
+            drive.setPowerFour(0);
+            sleep(300);
+
+            //RAISE ARM
+            motorLCurl.setPower(1);
+            motorRCurl.setPower(1);
+            sleep(400);
+            motorLCurl.setPower(0);
+            motorRCurl.setPower(0);
+            sleep(300);
+
+
+            //BACK
+            drive.setPowerOne(-0.5 * poweradjust);
+            drive.setPowerTwo(-0.5 * poweradjust);
+            drive.setPowerThree(-0.5 * poweradjust);
+            drive.setPowerFour(-0.5 * poweradjust);
+            sleep(1000);
             drive.setPowerOne(0);
             drive.setPowerTwo(0);
             drive.setPowerThree(0);

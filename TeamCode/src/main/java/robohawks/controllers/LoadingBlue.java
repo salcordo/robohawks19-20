@@ -223,11 +223,11 @@ public class LoadingBlue extends LinearOpMode {
             servoFoundation.setPosition(90);
             sleep(300);
 
-            //LEFT
-            drive.setPowerOne(1 * poweradjust);
-            drive.setPowerTwo(-1 * poweradjust);
-            drive.setPowerThree(1 * poweradjust);
-            drive.setPowerFour(-1 * poweradjust);
+            //TURN RIGHT
+            drive.setPowerOne(0.75 * poweradjust);
+            drive.setPowerTwo(-0.75 * poweradjust);
+            drive.setPowerThree(-0.75 * poweradjust);
+            drive.setPowerFour(0.75 * poweradjust);
             sleep(200);
             drive.setPowerOne(0);
             drive.setPowerTwo(0);

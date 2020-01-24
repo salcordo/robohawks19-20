@@ -162,7 +162,7 @@ public class FoundationRed extends LinearOpMode {
             drive.setPowerTwo(-0.5 * poweradjust);
             drive.setPowerThree(-0.5 * poweradjust);
             drive.setPowerFour(-0.5 * poweradjust);
-            sleep(200);
+            sleep(400);
             drive.setPowerOne(0);
             drive.setPowerTwo(0);
             drive.setPowerThree(0);

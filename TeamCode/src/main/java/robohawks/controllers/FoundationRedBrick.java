@@ -87,7 +87,7 @@ public class FoundationRedBrick extends LinearOpMode {
             drive.setPowerTwo(-0.5 * poweradjust);
             drive.setPowerThree(-0.5 * poweradjust);
             drive.setPowerFour(-0.5 * poweradjust);
-            sleep(900);
+            sleep(1100);
             drive.setPowerOne(0);
             drive.setPowerTwo(0);
             drive.setPowerThree(0);
@@ -103,7 +103,7 @@ public class FoundationRedBrick extends LinearOpMode {
             drive.setPowerTwo(0.4 * poweradjust);
             drive.setPowerThree(0.4 * poweradjust);
             drive.setPowerFour(0.4 * poweradjust);
-            sleep(3200);
+            sleep(4000);
             drive.setPowerOne(0);
             drive.setPowerTwo(0);
             drive.setPowerThree(0);
@@ -131,7 +131,7 @@ public class FoundationRedBrick extends LinearOpMode {
             drive.setPowerTwo(-0.5 * poweradjust);
             drive.setPowerThree(-0.5 * poweradjust);
             drive.setPowerFour(-0.5 * poweradjust);
-            sleep(500);
+            sleep(600);
             drive.setPowerOne(0);
             drive.setPowerTwo(0);
             drive.setPowerThree(0);
@@ -155,7 +155,7 @@ public class FoundationRedBrick extends LinearOpMode {
             drive.setPowerTwo(-0.5 * poweradjust);
             drive.setPowerThree(-0.5 * poweradjust);
             drive.setPowerFour(-0.5 * poweradjust);
-            sleep(200);
+            sleep(400);
             drive.setPowerOne(0);
             drive.setPowerTwo(0);
             drive.setPowerThree(0);
@@ -211,7 +211,7 @@ public class FoundationRedBrick extends LinearOpMode {
             drive.setPowerTwo(0.75 * poweradjust);
             drive.setPowerThree(0.75 * poweradjust);
             drive.setPowerFour(-0.75 * poweradjust);
-            sleep(120);
+            sleep(50);
             drive.setPowerOne(0);
             drive.setPowerTwo(0);
             drive.setPowerThree(0);
@@ -227,14 +227,37 @@ public class FoundationRedBrick extends LinearOpMode {
             sleep(300);
 
             //FORWARD
-            drive.setPowerOne(0.4 * poweradjust);
-            drive.setPowerTwo(0.4 * poweradjust);
-            drive.setPowerThree(0.4 * poweradjust);
-            drive.setPowerFour(0.4 * poweradjust);
-            //Brick Suck
-            motorRSuck.setPower(0.8);
-            motorLSuck.setPower(-0.8);
-            sleep(1200);
+            drive.setPowerOne(0.6 * poweradjust);
+            drive.setPowerTwo(0.6 * poweradjust);
+            drive.setPowerThree(0.6 * poweradjust);
+            drive.setPowerFour(0.6 * poweradjust);
+            sleep(800);
+            drive.setPowerOne(0);
+            drive.setPowerTwo(0);
+            drive.setPowerThree(0);
+            drive.setPowerFour(0);
+            sleep(300);
+
+            //TURN RIGHT
+            drive.setPowerOne(0.75 * poweradjust);
+            drive.setPowerTwo(-0.75 * poweradjust);
+            drive.setPowerThree(-0.75 * poweradjust);
+            drive.setPowerFour(0.75 * poweradjust);
+            sleep(200);
+            drive.setPowerOne(0);
+            drive.setPowerTwo(0);
+            drive.setPowerThree(0);
+            drive.setPowerFour(0);
+            sleep(300);
+
+            //FORWARD
+            drive.setPowerOne(0.6 * poweradjust);
+            drive.setPowerTwo(0.6 * poweradjust);
+            drive.setPowerThree(0.6 * poweradjust);
+            drive.setPowerFour(0.6 * poweradjust);
+            motorRSuck.setPower(1);
+            motorLSuck.setPower(-1);
+            sleep(300);
             drive.setPowerOne(0);
             drive.setPowerTwo(0);
             drive.setPowerThree(0);
@@ -244,10 +267,34 @@ public class FoundationRedBrick extends LinearOpMode {
             sleep(300);
 
             //BACK
-            drive.setPowerOne(-0.5 * poweradjust);
-            drive.setPowerTwo(-0.5 * poweradjust);
-            drive.setPowerThree(-0.5 * poweradjust);
-            drive.setPowerFour(-0.5 * poweradjust);
+            drive.setPowerOne(-0.6 * poweradjust);
+            drive.setPowerTwo(-0.6 * poweradjust);
+            drive.setPowerThree(-0.6 * poweradjust);
+            drive.setPowerFour(-0.6 * poweradjust);
+            sleep(100);
+            drive.setPowerOne(0);
+            drive.setPowerTwo(0);
+            drive.setPowerThree(0);
+            drive.setPowerFour(0);
+            sleep(300);
+
+            //TURN LEFT
+            drive.setPowerOne(-0.75 * poweradjust);
+            drive.setPowerTwo(0.75 * poweradjust);
+            drive.setPowerThree(0.75 * poweradjust);
+            drive.setPowerFour(-0.75 * poweradjust);
+            sleep(200);
+            drive.setPowerOne(0);
+            drive.setPowerTwo(0);
+            drive.setPowerThree(0);
+            drive.setPowerFour(0);
+            sleep(300);
+
+            //BACK
+            drive.setPowerOne(-0.6 * poweradjust);
+            drive.setPowerTwo(-0.6 * poweradjust);
+            drive.setPowerThree(-0.6 * poweradjust);
+            drive.setPowerFour(-0.6 * poweradjust);
             sleep(1200);
             drive.setPowerOne(0);
             drive.setPowerTwo(0);
@@ -260,19 +307,7 @@ public class FoundationRedBrick extends LinearOpMode {
             drive.setPowerTwo(-0.75 * poweradjust);
             drive.setPowerThree(-0.75 * poweradjust);
             drive.setPowerFour(0.75 * poweradjust);
-            sleep(1200);
-            drive.setPowerOne(0);
-            drive.setPowerTwo(0);
-            drive.setPowerThree(0);
-            drive.setPowerFour(0);
-            sleep(300);
-
-            //RIGHT
-            drive.setPowerOne(0.75 * poweradjust);
-            drive.setPowerTwo(-0.75 * poweradjust);
-            drive.setPowerThree(-0.75 * poweradjust);
-            drive.setPowerFour(0.75 * poweradjust);
-            sleep(500);
+            sleep(1000);
             drive.setPowerOne(0);
             drive.setPowerTwo(0);
             drive.setPowerThree(0);
@@ -287,11 +322,23 @@ public class FoundationRedBrick extends LinearOpMode {
             motorRCurl.setPower(0);
             sleep(300);
 
-            //BACK
-            drive.setPowerOne(-0.5 * poweradjust);
-            drive.setPowerTwo(-0.5 * poweradjust);
-            drive.setPowerThree(-0.5 * poweradjust);
-            drive.setPowerFour(-0.5 * poweradjust);
+            //TURN RIGHT
+            drive.setPowerOne(0.75 * poweradjust);
+            drive.setPowerTwo(-0.75 * poweradjust);
+            drive.setPowerThree(-0.75 * poweradjust);
+            drive.setPowerFour(0.75 * poweradjust);
+            sleep(250);
+            drive.setPowerOne(0);
+            drive.setPowerTwo(0);
+            drive.setPowerThree(0);
+            drive.setPowerFour(0);
+            sleep(300);
+
+            //FORWARD
+            drive.setPowerOne(0.5 * poweradjust);
+            drive.setPowerTwo(0.5 * poweradjust);
+            drive.setPowerThree(0.5 * poweradjust);
+            drive.setPowerFour(0.5 * poweradjust);
             sleep(300);
             drive.setPowerOne(0);
             drive.setPowerTwo(0);
@@ -299,9 +346,17 @@ public class FoundationRedBrick extends LinearOpMode {
             drive.setPowerFour(0);
             sleep(300);
 
+            //RAISE ARM
+            motorLCurl.setPower(-0.2);
+            motorRCurl.setPower(-0.2);
+            sleep(200);
+            motorLCurl.setPower(0);
+            motorRCurl.setPower(0);
+            sleep(300);
+
             //EJECT BRICK
-            motorRSuck.setPower(-0.8);
-            motorLSuck.setPower(0.8);
+            motorRSuck.setPower(-0.3);
+            motorLSuck.setPower(0.3);
             sleep(300);
             drive.setPowerOne(0);
             drive.setPowerTwo(0);
@@ -331,11 +386,11 @@ public class FoundationRedBrick extends LinearOpMode {
             motorRCurl.setPower(0);
             sleep(300);
 
-            //TURN LEFT
-            drive.setPowerOne(-0.75 * poweradjust);
-            drive.setPowerTwo(0.75 * poweradjust);
-            drive.setPowerThree(0.75 * poweradjust);
-            drive.setPowerFour(-0.75 * poweradjust);
+            //TURN RIGHT
+            drive.setPowerOne(0.75 * poweradjust);
+            drive.setPowerTwo(-0.75 * poweradjust);
+            drive.setPowerThree(-0.75 * poweradjust);
+            drive.setPowerFour(0.75 * poweradjust);
             sleep(120);
             drive.setPowerOne(0);
             drive.setPowerTwo(0);
