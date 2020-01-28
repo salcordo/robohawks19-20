@@ -1,4 +1,4 @@
-#Sat Jan 11 08:51:28 EST 2020
-base.0=C\:\\Users\\BHHS Robotics Team\\Desktop\\Git\\robohawks19-20\\TeamCode\\build\\intermediates\\transforms\\dexMerger\\debug\\0
+#Tue Jan 28 15:18:06 EST 2020
+base.0=C\:\\Users\\BHHS Robotics Team\\Desktop\\SkyStone-master\\TeamCode\\build\\intermediates\\dex\\debug\\mergeDexDebug\\out
 path.0=classes.dex
 renamed.0=classes.dex

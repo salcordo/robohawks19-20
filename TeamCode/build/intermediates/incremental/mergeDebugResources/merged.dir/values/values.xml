@@ -175,6 +175,10 @@
     <color name="medium_purple">#3b0e77</color>
     <color name="medium_red">#790e15</color>
     <color name="medium_teal">#106989</color>
+    <color name="notification_action_color_filter">#ffffffff</color>
+    <color name="notification_icon_bg_color">#ff9e9e9e</color>
+    <color name="ripple_material_light">#1f000000</color>
+    <color name="secondary_text_default_material_light">#8a000000</color>
     <color name="text_error">@color/bright_red</color>
     <color name="text_okay">#009900</color>
     <color name="text_toast">@color/text_white</color>
@@ -192,18 +196,46 @@
     <color name="very_very_dark_purple">#14012d</color>
     <color name="very_very_dark_red">#2d0104</color>
     <color name="very_very_dark_teal">#01212d</color>
-    <declare-styleable name="CameraBridgeViewBase"><attr format="boolean" name="show_fps"/><attr format="integer" name="camera_id">
-          <enum name="any" value="-1"/>
-          <enum name="back" value="99"/>
-          <enum name="front" value="98"/>
-       </attr></declare-styleable>
-    <declare-styleable name="ColorListPreference"><attr format="reference" name="colors"/></declare-styleable>
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">5dp</dimen>
+    <dimen name="compat_button_inset_horizontal_material">4dp</dimen>
+    <dimen name="compat_button_inset_vertical_material">6dp</dimen>
+    <dimen name="compat_button_padding_horizontal_material">8dp</dimen>
+    <dimen name="compat_button_padding_vertical_material">4dp</dimen>
+    <dimen name="compat_control_corner_material">2dp</dimen>
+    <dimen name="compat_notification_large_icon_max_height">320dp</dimen>
+    <dimen name="compat_notification_large_icon_max_width">320dp</dimen>
+    <dimen name="notification_action_icon_size">32dp</dimen>
+    <dimen name="notification_action_text_size">13sp</dimen>
+    <dimen name="notification_big_circle_margin">12dp</dimen>
+    <dimen name="notification_content_margin_start">8dp</dimen>
+    <dimen name="notification_large_icon_height">64dp</dimen>
+    <dimen name="notification_large_icon_width">64dp</dimen>
+    <dimen name="notification_main_column_padding_top">10dp</dimen>
+    <dimen name="notification_media_narrow_margin">@dimen/notification_content_margin_start</dimen>
+    <dimen name="notification_right_icon_size">16dp</dimen>
+    <dimen name="notification_right_side_padding_top">2dp</dimen>
+    <dimen name="notification_small_icon_background_padding">3dp</dimen>
+    <dimen name="notification_small_icon_size_as_large">24dp</dimen>
+    <dimen name="notification_subtext_size">13sp</dimen>
+    <dimen name="notification_top_pad">10dp</dimen>
+    <dimen name="notification_top_pad_large_text">5dp</dimen>
+    <drawable name="notification_template_icon_bg">#3333B5E5</drawable>
+    <drawable name="notification_template_icon_low_bg">#0cffffff</drawable>
+    <item name="line1" type="id"/>
+    <item name="line3" type="id"/>
+    <item name="tag_transition_group" type="id"/>
+    <item name="tag_unhandled_key_event_manager" type="id"/>
+    <item name="tag_unhandled_key_listeners" type="id"/>
+    <item name="text" type="id"/>
+    <item name="text2" type="id"/>
+    <item name="title" type="id"/>
+    <integer name="status_bar_notification_info_maxnum">999</integer>
     <string name="VUFORIA_INIT_ERROR_DEVICE_NOT_SUPPORTED">Failed to initialize Vuforia. This device is not supported.</string>
-    <string name="VUFORIA_INIT_ERROR_NO_CAMERA_ACCESS">Failed to initialize Vuforia. Camera not accessible</string>
+    <string name="VUFORIA_INIT_ERROR_NO_CAMERA_ACCESS">Failed to initialize Vuforia because the camera is not accessible.  If using a webcam check that it is connected to a USB hub.  If using either
+       the phone camera or a webcam check that the application has the Camera permission.</string>
     <string name="VUFORIA_INIT_LICENSE_ERROR_CANCELED_KEY">This app license key has been canceled and may no longer be used. Please get a new license key.</string>
-    <string name="VUFORIA_INIT_LICENSE_ERROR_INVALID_KEY">Invalid Key used. Please make sure you are using a valid Vuforia App Key.</string>
+    <string name="VUFORIA_INIT_LICENSE_ERROR_INVALID_KEY">Invalid Vuforia App Key used. See the Vuforia Samples for comments on obtaining a Vuforia Key.</string>
     <string name="VUFORIA_INIT_LICENSE_ERROR_MISMATCH_KEY">Vuforia App key is not valid for this product. Please get a valid key, by logging into your account at developer.vuforia.com and choosing the right product type during project creation.</string>
     <string name="VUFORIA_INIT_LICENSE_ERROR_MISSING_KEY">Vuforia App key is missing. Please get a valid key, by logging into your account at developer.vuforia.com and creating a new project.</string>
     <string name="VUFORIA_INIT_LICENSE_ERROR_NO_NETWORK_PERMANENT">No network available. Please make sure you are connected to the Internet.</string>
@@ -213,6 +245,7 @@
     <string name="about_activity">About</string>
     <string name="about_app_version">App Version</string>
     <string name="about_build_time">App Build Time</string>
+    <string name="about_ch_os_version">Control Hub OS Version</string>
     <string name="about_library_version">Library Version</string>
     <string name="about_menu_item">About</string>
     <string name="about_network_connection_info">Network Connection Info</string>
@@ -251,6 +284,30 @@
     <string name="appThemeChangeRestartNotifyDS">App color scheme has changed. The driver station will restart.</string>
     <string name="appThemeChangeRestartNotifyRC">App color scheme has changed. The robot controller will restart.</string>
     <string name="app_name">FTC Robot Controller</string>
+    <string name="app_result_type_attempting_installation">The APK file was successfully loaded.\nNow attempting installation of the %s.</string>
+    <string name="app_result_type_auto_updated_app">Auto-updated app: %s</string>
+    <string name="app_result_type_failed_and_reverted">The APK failed to install, and the backed up APK failed to restore. Reverted to the version that came with the Control Hub.</string>
+    <string name="app_result_type_failed_to_restore">The APK failed to install, and the backed up APK failed to restore. Try installing the app via ADB.</string>
+    <string name="app_result_type_generic_install_failure">The APK failed to install. Please try again. See the log file for details.</string>
+    <string name="app_result_type_illegal_package">The provided APK is not an allowable application.</string>
+    <string name="app_result_type_incompatible_with_device">The APK is not compatible with this device.</string>
+    <string name="app_result_type_installation_aborted">The APK installation was aborted. Please try again.</string>
+    <string name="app_result_type_installation_blocked">The APK installation was blocked. See the log file for details.</string>
+    <string name="app_result_type_installation_succeeded">The APK file installed successfully.</string>
+    <string name="app_result_type_installed_missing_app">Installed missing app: %s</string>
+    <string name="app_result_type_invalid_apk_file">The APK file is reported as invalid.</string>
+    <string name="app_result_type_io_exception">An IOException occurred while loading the APK. Please try again.</string>
+    <string name="app_result_type_rebooting_with_new_ap_service">Rebooting with new AP service in place.</string>
+    <string name="app_result_type_replaced_wrong_app_variant">Replaced incorrect variant of app: %s</string>
+    <string name="app_result_type_storage_failure">There is an issue with the device\'s storage.</string>
+    <string name="app_result_type_timeout_expired">The APK took too long to install. Please try again.</string>
+    <string name="app_result_type_uninstall_failed">The previously installed app failed to uninstall.</string>
+    <string name="app_result_type_uninstall_required">The provided APK conflicts with the currently installed version of the app. %s\n\n
+        Do you want to uninstall the currently installed app? This will reset the current network name,
+        password, active configuration, and other settings. Your Blocks and OnBotJava programs will stay intact.</string>
+    <string name="app_result_type_uninstalled_wrong_app_variant">Uninstalled incorrect variant of app: %s</string>
+    <string name="app_result_type_uninstalling_existing_app">Uninstalling existing app and installing new one</string>
+    <string name="app_result_type_unknown_install_status">Got unrecognized response from package installer.</string>
     <string name="attached">Attached</string>
     <string name="availableConfigListCaption">Available configurations:</string>
     <string name="availableConfigsInfoMessage">These are the configurations the Hardware Wizard was able to find. You can edit each configuration by clicking the edit button. The \'Activate\' button will set that configuration as the current one, which will be used to start the robot.</string>
@@ -274,6 +331,7 @@
     <string name="buttonWirelessApSettingsLabel">Wifi Settings</string>
     <string name="captionAvailableSwapDevices">Available USB controllers to swap with:</string>
     <string name="captionAvailableUsbDevices">USB Devices in configuration:</string>
+    <string name="ch_updater_not_supported">This device does not include the ControlHubUpdater.</string>
     <string name="choice_prompt">Which sensor is attached?</string>
     <string name="choice_prompt_analogInput">Which sensor is attached?</string>
     <string name="choice_prompt_analogOutput">Which sensor is attached?</string>
@@ -283,6 +341,10 @@
     <string name="choice_prompt_motor">Which kind of motor is attached?</string>
     <string name="choice_prompt_servo">Which kind of servo is attached?</string>
     <string name="clear_remembered_groups">Clear Remembered Groups</string>
+    <string name="common_result_type_busy_with_previous_request">Busy with previous update request.</string>
+    <string name="common_result_type_file_does_not_exist">The specified file does not exist.</string>
+    <string name="common_result_type_no_update_file">No update file provided.</string>
+    <string name="common_result_type_performing_startup_operations">The device has not finished startup operations.</string>
     <string name="configDirtyLabel">"(unsaved) %s"</string>
     <string name="configFailedToOpenDeviceManager">Failed to open the Device Manager</string>
     <string name="configFromTemplateInfoMessage">Several robot configuration templates are available. Configuring your robot using one of these templates is the fastest way to get a new robot up and running.</string>
@@ -433,8 +495,13 @@
     <string name="led_description">an LED</string>
     <string name="legacy_controller_name">Enter the name for this legacy module here</string>
     <string name="load_menu_item">Load Configuration File</string>
+    <string name="locationServices">The Driver Station has detected that it can not find any WifiDirect peers and Location Services is
+    turned off at a System Level.  Google\'s Android operating system, Oreo and above, requires Locations Services to be on in order to scan
+    for Wifi Direct peers.  Pressing Ok will redirect you to the Location Services setting page where this may be enabled.</string>
     <string name="log_label">Server log:</string>
     <string name="lynxAnalogInputControllerDisplayName">Expansion Hub Analog Input Controller</string>
+    <string name="lynxBatteryToLowMotor">The expansion hub reported that the battery is too low to run motors.  Please check the battery connection and/or replace with a charged battery.</string>
+    <string name="lynxBatteryToLowServo">The expansion hub reported that the battery is too low to run servos.  Please check the battery connection and/or replace with a charged battery.</string>
     <string name="lynxDcMotorControllerDisplayName">Expansion Hub DC Motor Controller</string>
     <string name="lynxDigitalChannelControllerDisplayName">Expansion Hub Digital Channel Controller</string>
     <string name="lynxFirmwareUpdateReadme">Place any downloaded Expansion Hub firmware updates you wish to install in this folder. You can then install those updates using the Advanced Settings menu on the Driver Station or Robot Controller.</string>
@@ -462,6 +529,7 @@
     <string name="lynx_fw_instructions_serial">Serial number: %s</string>
     <string name="lynx_fw_instructions_update">Expansion Hub firmware update file \"%1$s\" was found, as were the following Expansion Hubs:</string>
     <string name="lynx_fw_instructions_update_post">Click on the button below to update the firmware on each of these Expansion Hubs.\n\nWARNING: While the firmware update is in progress, do not unplug hubs or restart the robot, or a hub may become permanently unusable.</string>
+    <string name="manage_page_no_network">Unavailable. Is WiFi on?</string>
     <string name="matrix_controller_name_prompt">Enter the name for this matrix controller here</string>
     <string name="matrix_motor_title">Motors</string>
     <string name="matrix_name_prompt">Matrix name</string>
@@ -528,6 +596,14 @@
     <string name="nxtDcMotorControllerName">Hitechnic DC Motor Controller</string>
     <string name="nxtServoControllerName">Hitechnic Servo Controller</string>
     <string name="optical_distance_sensor_description">a Modern Robotics optical distance sensor</string>
+    <string name="ota_result_type_device_not_supported">This update file does not support this device.</string>
+    <string name="ota_result_type_downgrade_not_authorized">This update file is older than the currently running operating system.\nAre you sure you want to install it?</string>
+    <string name="ota_result_type_error_reading_file">Error reading the uploaded update file. Please try again.</string>
+    <string name="ota_result_type_failed_to_install">Update failed to install. Please try again.</string>
+    <string name="ota_result_type_invalid_file_location">The file must be in the external storage folder.</string>
+    <string name="ota_result_type_invalid_update_file">Invalid update file.</string>
+    <string name="ota_result_type_ota_update_finished">Update installed successfully.</string>
+    <string name="ota_result_type_verification_succeeded">Update verification succeeded. Rebooting device and installing update.</string>
     <string name="packageName">@string/packageNameRobotController</string>
     <string name="packageNameDriverStation" translatable="false">com.qualcomm.ftcdriverstation</string>
     <string name="packageNameRobotController" translatable="false">com.qualcomm.ftcrobotcontroller</string>
@@ -535,6 +611,29 @@
     <string name="passphrase_label">Use the following passphrase to gain access to the network:</string>
     <string name="peerStatusConnected">connected</string>
     <string name="peerStatusDisconnected">disconnected</string>
+    <string name="permAccessCoarseLocationExplain">The SDK infrastructure does WiFi scans to help with pairing of
+    phones.  Knowing what access points are available can allow an application to know a coarse approximation of its
+    location.  Even though the SDK does not use location information, Android requires that we ask for this permission.
+    It is not possible to run the application without this permission.  You must allow all permissions.</string>
+    <string name="permDsReadExternalStorageExplain">The Driver Station must be able to access external storage
+    for robot logging.  It is not possible to run the application without this permission.  You must allow all permissions.</string>
+    <string name="permDsWriteExternalStorageExplain">The Driver Station must be able to access external storage
+    for robot logging.  It is not possible to run the application without this permission.  You must allow all permissions.</string>
+    <string name="permGenericExplain">
+    It is not possible to run the application without this permission.  You must allow all permissions.</string>
+    <string name="permPermanentlyDenied">
+    Permission has been permanently denied for one or more resources.  The %s can not run.</string>
+    <string name="permPermanentlyDeniedRecovery">
+    Click here to be redirected to the Settings activity, then select Permissions and enable %s</string>
+    <string name="permRcCameraExplain">The Robot Controller must be able to access the camera in order to enable
+    Vuforia and Tensorflow features.  Regardless of whether or not your OpMode uses these features, you must allow
+    this permission. It is not possible to run the application without this permission.  You must allow all permissions.</string>
+    <string name="permRcReadExternalStorageExplain">The Robot Controller must be able to access external storage
+    for the Blocks and OnBot Java developement environments and robot logging.  It is not possible to run the
+    application without this permission.  You must allow all permissions.</string>
+    <string name="permRcWriteExternalStorageExplain">The Robot Controller must be able to access external storage
+    for the Blocks and OnBot Java developement environments and robot logging.  It is not possible to run the
+    application without this permission.  You must allow all permissions.</string>
     <string name="port">Port</string>
     <string name="pref_app_category">pref_app_category</string>
     <string name="pref_app_category_rc">pref_app_category_rc</string>
@@ -582,6 +681,8 @@
     <string name="pref_network_connection_type">pref_network_connection_type</string>
     <string name="pref_network_protocol_version">pref_network_protocol_version</string>
     <string name="pref_network_protocol_version_rc">pref_network_protocol_version_rc</string>
+    <string name="pref_os_version">pref_os_version</string>
+    <string name="pref_os_version_rc">pref_os_version_rc</string>
     <string name="pref_pair_rc">pref_pair_rc</string>
     <string name="pref_pairing_kind">pref_pairing_kind</string>
     <string name="pref_pairing_kind_default">"WifiDirect"</string>
@@ -613,6 +714,8 @@
     <string name="prefedit_debug_driver_station_logs_summary">Record low-level internal events to the log. This may generate a large log volume.</string>
     <string name="prefedit_device_name">Device Name</string>
     <string name="prefedit_device_name_ds">Driver Station Name</string>
+    <string name="prefedit_device_name_invalid_text">Controller Name Invalid</string>
+    <string name="prefedit_device_name_invalid_title">Invalid Input</string>
     <string name="prefedit_device_name_rc">Robot Controller Name</string>
     <string name="prefedit_device_name_summary">Change the name of this device</string>
     <string name="prefedit_device_name_summary_ds">Change the name of the driver station</string>
@@ -638,9 +741,6 @@
     <string name="preferred_imu_name">imu</string>
     <string name="program_and_manage_activity">Program &amp; Manage</string>
     <string name="program_and_manage_menu_item">Program &amp; Manage</string>
-    <string name="programming_mode">Programming Mode</string>
-    <string name="programming_mode_activity">Programming Mode</string>
-    <string name="programming_mode_menu_item">Programming Mode</string>
     <string name="progressPleaseWait">Please wait</string>
     <string name="progressUpdatingDeviceFirmware">Updating Expansion Hub firmware (%s)</string>
     <string name="quotes">\"%s\"</string>
@@ -654,12 +754,14 @@
     <string name="rev_40_hd_hex_name">REV Robotics 40:1 HD Hex Motor</string>
     <string name="rev_blinkin_description">a REV Blinkin LED Driver</string>
     <string name="rev_blinkin_name">REV Blinkin LED Driver</string>
+    <string name="rev_color_sensor_v3_description">a Rev Color Sensor v3</string>
+    <string name="rev_color_sensor_v3_name">Rev Color Sensor v3</string>
     <string name="rev_core_hex_name">REV Robotics Core Hex Motor</string>
     <string name="rev_distributor">REV Robotics</string>
     <string name="rev_laser_sensor_description">a REV 2M (Time of Flight) Distance Sensor</string>
     <string name="rev_laser_sensor_name">REV 2M Distance Sensor</string>
-    <string name="rev_spark_mini_description">a REV SPARK Mini Motor Controller</string>
-    <string name="rev_spark_mini_name">REV SPARK Mini Controller</string>
+    <string name="rev_spark_mini_description">a REV SPARKmini Motor Controller</string>
+    <string name="rev_spark_mini_name">REV SPARKmini Controller</string>
     <string name="rev_touch_sensor_description">a REV touch sensor</string>
     <string name="robotControllerAppUpdateReadme">When running on a REV Control Hub (and only on a Control Hub, not merely a robot controller phone), any Android applications (APK files) found in this folder will be automatically installed when the system boots. Once successfully installed, each APK is deleted so as to not be reinstalled on subsequent boots.</string>
     <string name="robotStateEmergencyStop">EMERGENCY STOP</string>
@@ -705,6 +807,7 @@
     <string name="settings_activity">Settings</string>
     <string name="settings_menu_item">Settings</string>
     <string name="standard_servo_description">a servo</string>
+    <string name="status_bar_notification_info_overflow">999+</string>
     <string name="stringManufacturer">Manufacturer:</string>
     <string name="stringModel">Model:</string>
     <string name="string_WifiChannelHeading">Instructions:</string>
@@ -712,7 +815,7 @@
     <string name="string_WifiRememberedGroupsInstructions">The Robot Controller contains the following Wifi Direct remembered groups. Click on the button at the bottom to clear these groups. Clearing groups in this way can at times help alleviate network connectivity issues.</string>
     <string name="summaryAdvancedRCSettings">Change advanced settings of the robot controller</string>
     <string name="summaryLynxAddressUpdate">Change the persistent hub address of one or more Expansion Hubs</string>
-    <string name="summaryLynxFirmwareUpdate">Updates the firmware all currently attached Expansion Hubs</string>
+    <string name="summaryLynxFirmwareUpdate">Updates the firmware of all currently attached Expansion Hubs</string>
     <string name="swapPrompt">Choose the USB controller you want to swap \'%s\' with, or press \'Cancel\'</string>
     <string name="templateConfigurationInstructions">To configure your robot using %1$s, attach the following devices, then press the \'Config\' button:\n%2$s</string>
     <string name="templateConfigureConfigurationInstructionsTitle">Configuration Instructions</string>
@@ -740,7 +843,6 @@
     <string name="title_activity_wifi_channel_selector">Wifi Channel Selection</string>
     <string name="title_activity_wifi_remembered_groups_editor">Wifi Remembered Groups Editor</string>
     <string name="toastCantCreateRobotConfigFilesDir">Can\'t create the Robot Config Files directory!</string>
-    <string name="toastConfigureRobotBeforeProgrammingMode">You must Configure Robot before starting Programming Mode.</string>
     <string name="toastDisableWifi">Disabling WiFi</string>
     <string name="toastDisableWifiWarn">WiFi disable in\u0020</string>
     <string name="toastDisconnectedFromWifiDirect">Successfully disconnected from WiFi Direct</string>
@@ -763,6 +865,7 @@
     <string name="toastWifiConfigurationComplete">Configuration Complete</string>
     <string name="toastWifiP2pChannelChangeRequestedDS">Asked Robot Controller to change to channel \'%s\'. A restart of the Driver Station may be needed.</string>
     <string name="toastWifiP2pRememberedGroupsCleared">Wifi Direct remembered groups have been cleared from the robot controller.</string>
+    <string name="toastWifiUpBeforeProgrammingMode">The Robot Controller must be fully up and running before entering Program and Manage Mode.</string>
     <string name="tokenThemeBlue">blue</string>
     <string name="tokenThemeGreen">green</string>
     <string name="tokenThemeOrange">orange</string>
@@ -771,6 +874,7 @@
     <string name="tokenThemeTeal">teal</string>
     <string name="unavailable">unavailable</string>
     <string name="unhealthyDevice">problem with %s</string>
+    <string name="unknown_control_hub_error">Running on an unknown type of Control Hub. Are you using the latest version of the software?</string>
     <string name="unknown_wifi_direct_channel">Unknown channel</string>
     <string name="update_lynx_firmware">Update Expansion Hub Firmware</string>
     <string name="usb_pid_name_logitech_c310">HD Pro Webcam C310</string>
@@ -991,4 +1095,146 @@
     <style name="OpModeDialogTextAppearance" parent="@android:style/TextAppearance.Medium">
         <item name="android:textColor">?android:attr/textColorAlertDialogListItem</item>
     </style>
+    <style name="TextAppearance.Compat.Notification" parent="@android:style/TextAppearance.StatusBar.EventContent"/>
+    <style name="TextAppearance.Compat.Notification.Info">
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">?android:attr/textColorSecondary</item>
+    </style>
+    <style name="TextAppearance.Compat.Notification.Line2" parent="TextAppearance.Compat.Notification.Info"/>
+    <style name="TextAppearance.Compat.Notification.Time">
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">?android:attr/textColorSecondary</item>
+    </style>
+    <style name="TextAppearance.Compat.Notification.Title" parent="@android:style/TextAppearance.StatusBar.EventContent.Title"/>
+    <style name="Widget.Compat.NotificationActionContainer" parent=""/>
+    <style name="Widget.Compat.NotificationActionText" parent=""/>
+    <declare-styleable name="ColorListPreference">
+        <attr format="reference" name="colors"/>
+    </declare-styleable>
+    <declare-styleable name="ColorStateListItem">
+        <!-- Base color for this state. -->
+        <attr name="android:color"/>
+        <!-- Alpha multiplier applied to the base color. -->
+        <attr format="float" name="alpha"/>
+        <attr name="android:alpha"/>
+    </declare-styleable>
+    <declare-styleable name="FontFamily">
+        <!-- The authority of the Font Provider to be used for the request. -->
+        <attr format="string" name="fontProviderAuthority"/>
+        <!-- The package for the Font Provider to be used for the request. This is used to verify
+        the identity of the provider. -->
+        <attr format="string" name="fontProviderPackage"/>
+        <!-- The query to be sent over to the provider. Refer to your font provider's documentation
+        on the format of this string. -->
+        <attr format="string" name="fontProviderQuery"/>
+        <!-- The sets of hashes for the certificates the provider should be signed with. This is
+        used to verify the identity of the provider, and is only required if the provider is not
+        part of the system image. This value may point to one list or a list of lists, where each
+        individual list represents one collection of signature hashes. Refer to your font provider's
+        documentation for these values. -->
+        <attr format="reference" name="fontProviderCerts"/>
+        <!-- The strategy to be used when fetching font data from a font provider in XML layouts.
+        This attribute is ignored when the resource is loaded from code, as it is equivalent to the
+        choice of API between {@link
+    androidx.core.content.res.ResourcesCompat#getFont(Context, int)} (blocking) and
+        {@link
+    androidx.core.content.res.ResourcesCompat#getFont(Context, int, FontCallback, Handler)}
+        (async). -->
+        <attr name="fontProviderFetchStrategy">
+            <!-- The blocking font fetch works as follows.
+              First, check the local cache, then if the requested font is not cached, request the
+              font from the provider and wait until it is finished.  You can change the length of
+              the timeout by modifying fontProviderFetchTimeout.  If the timeout happens, the
+              default typeface will be used instead. -->
+            <enum name="blocking" value="0"/>
+            <!-- The async font fetch works as follows.
+              First, check the local cache, then if the requeted font is not cached, trigger a
+              request the font and continue with layout inflation. Once the font fetch succeeds, the
+              target text view will be refreshed with the downloaded font data. The
+              fontProviderFetchTimeout will be ignored if async loading is specified. -->
+            <enum name="async" value="1"/>
+        </attr>
+        <!-- The length of the timeout during fetching. -->
+        <attr format="integer" name="fontProviderFetchTimeout">
+            <!-- A special value for the timeout. In this case, the blocking font fetching will not
+              timeout and wait until a reply is received from the font provider. -->
+            <enum name="forever" value="-1"/>
+        </attr>
+    </declare-styleable>
+    <declare-styleable name="FontFamilyFont">
+        <!-- The style of the given font file. This will be used when the font is being loaded into
+         the font stack and will override any style information in the font's header tables. If
+         unspecified, the value in the font's header tables will be used. -->
+        <attr name="fontStyle">
+            <enum name="normal" value="0"/>
+            <enum name="italic" value="1"/>
+        </attr>
+        <!-- The reference to the font file to be used. This should be a file in the res/font folder
+         and should therefore have an R reference value. E.g. @font/myfont -->
+        <attr format="reference" name="font"/>
+        <!-- The weight of the given font file. This will be used when the font is being loaded into
+         the font stack and will override any weight information in the font's header tables. Must
+         be a positive number, a multiple of 100, and between 100 and 900, inclusive. The most
+         common values are 400 for regular weight and 700 for bold weight. If unspecified, the value
+         in the font's header tables will be used. -->
+        <attr format="integer" name="fontWeight"/>
+        <!-- The variation settings to be applied to the font. The string should be in the following
+         format: "'tag1' value1, 'tag2' value2, ...". If the default variation settings should be
+         used, or the font used does not support variation settings, this attribute needs not be
+         specified. -->
+        <attr format="string" name="fontVariationSettings"/>
+        <!-- The index of the font in the tcc font file. If the font file referenced is not in the
+        tcc format, this attribute needs not be specified. -->
+        <attr format="integer" name="ttcIndex"/>
+        <!-- References to the framework attrs -->
+        <attr name="android:fontStyle"/>
+        <attr name="android:font"/>
+        <attr name="android:fontWeight"/>
+        <attr name="android:fontVariationSettings"/>
+        <attr name="android:ttcIndex"/>
+    </declare-styleable>
+    <declare-styleable name="GradientColor">
+        <!-- Start color of the gradient. -->
+        <attr name="android:startColor"/>
+        <!-- Optional center color. -->
+        <attr name="android:centerColor"/>
+        <!-- End color of the gradient. -->
+        <attr name="android:endColor"/>
+        <!-- Type of gradient. The default type is linear. -->
+        <attr name="android:type"/>
+
+        <!-- Only applied to RadialGradient-->
+        <!-- Radius of the gradient, used only with radial gradient. -->
+        <attr name="android:gradientRadius"/>
+
+        <!-- Only applied to SweepGradient / RadialGradient-->
+        <!-- X coordinate of the center of the gradient within the path. -->
+        <attr name="android:centerX"/>
+        <!-- Y coordinate of the center of the gradient within the path. -->
+        <attr name="android:centerY"/>
+
+        <!-- LinearGradient specific -->
+        <!-- X coordinate of the start point origin of the gradient.
+             Defined in same coordinates as the path itself -->
+        <attr name="android:startX"/>
+        <!-- Y coordinate of the start point of the gradient within the shape.
+             Defined in same coordinates as the path itself -->
+        <attr name="android:startY"/>
+        <!-- X coordinate of the end point origin of the gradient.
+             Defined in same coordinates as the path itself -->
+        <attr name="android:endX"/>
+        <!-- Y coordinate of the end point of the gradient within the shape.
+             Defined in same coordinates as the path itself -->
+        <attr name="android:endY"/>
+
+        <!-- Defines the tile mode of the gradient. SweepGradient doesn't support tiling. -->
+        <attr name="android:tileMode"/>
+    </declare-styleable>
+    <declare-styleable name="GradientColorItem">
+        <!-- The offset (or ratio) of this current color item inside the gradient.
+             The value is only meaningful when it is between 0 and 1. -->
+        <attr name="android:offset"/>
+        <!-- The current color for the offset inside the gradient. -->
+        <attr name="android:color"/>
+    </declare-styleable>
 </resources>

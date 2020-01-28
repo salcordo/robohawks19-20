@@ -14,12 +14,13 @@ public class TeleopController extends Controller {
 
     //HARDWARE
     HolonomicDriveModule drive;
-    DcMotor motorRCurl;
-    DcMotor motorLCurl;
     Servo servoLoaf;
     Servo servoFoundation;
-    DcMotor motorRSuck;
-    DcMotor motorLSuck;
+    DcMotor verticalpulley1;
+    DcMotor verticalpulley2;
+    DcMotor succ;
+    DcMotor horizontalextender;
+    DcMotor m1;
 
     //VARIABLES
     float precisionxa = 1;
@@ -38,12 +39,14 @@ public class TeleopController extends Controller {
     @Override
     public void init() {
         drive = new HolonomicDriveModule(hardwareMap);
-        motorRCurl = hardwareMap.dcMotor.get("motorRCurl");
-        motorLCurl = hardwareMap.dcMotor.get("motorLCurl");
+        m1 = hardwareMap.dcMotor.get("m1");
         servoFoundation = hardwareMap.servo.get("servoFoundation");
         servoLoaf = hardwareMap.servo.get("servoLoaf");
-        motorRSuck = hardwareMap.dcMotor.get("motorRSuck");
-        motorLSuck = hardwareMap.dcMotor.get("motorLSuck");
+        verticalpulley1 = hardwareMap.dcMotor.get("vpulley1");
+        verticalpulley2 = hardwareMap.dcMotor.get("vpulley2");
+        succ = hardwareMap.dcMotor.get("succ");
+        horizontalextender = hardwareMap.dcMotor.get("horizontalextender");
+        telemetry.addData("encoder", m1.getCurrentPosition());
     }
 
     @Override
@@ -57,14 +60,12 @@ public class TeleopController extends Controller {
     //DPAD:         Motor Test
 
 //CONTROLLER 2
-    //Left Bumper:  Curl Up
-    //Right Bumper: Curl Down
-    //X:            Loaf
-    //Y:            Foundation
-    //B:            Bridge Reset
-    //A:            Toggle Compliance precision
-    //Left Trigger: Eject Brick
-    //Right Trigger:Suck Brick
+    //B:            Succ
+    //A:            Succ
+    //Left Trigger: Vertical Pulley
+    //Right Trigger:Vertical Pulley
+    //Left Bumper:  Negative Horizontal Extender
+    //Right Bumper: Horizontal Extender
 
         // Drive
         float gamepad1LeftY = gamepad1.left_stick_y * precisionya;
@@ -84,10 +85,10 @@ public class TeleopController extends Controller {
         BackRight = Range.clip(BackRight, -1, 1);
 
         // Write the values to the motors
-        drive.setPowerOne(-FrontRight);
+        drive.setPowerOne(FrontRight);
         drive.setPowerTwo(FrontLeft);
         drive.setPowerThree(BackLeft);
-        drive.setPowerFour(-BackRight);
+        drive.setPowerFour(BackRight);
 
 
         //EXAMPLE BUTTON
@@ -100,6 +101,7 @@ public class TeleopController extends Controller {
         //  servo.setPower(0);
         //  servo.setPosition(0);
 
+
         if(gamepad2.dpad_down){
             drive.setPowerOne(-1);
             drive.setPowerTwo(1);
@@ -110,6 +112,10 @@ public class TeleopController extends Controller {
             drive.setPowerTwo(0);
             drive.setPowerThree(0);
             drive.setPowerFour(0);
+        }
+
+        if(gamepad1.a){
+            telemetry.update();
         }
 
         //Toggle precision mode for primary driver (Controller 1)
@@ -130,54 +136,6 @@ public class TeleopController extends Controller {
             precisionya = (float) 1;
             precisionxa = (float) 1;
         }
-        //Curl
-        if(gamepad2.left_bumper){
-            motorLCurl.setPower(1);
-            motorRCurl.setPower(1);
-        }else{
-            motorLCurl.setPower(0);
-            motorRCurl.setPower(0);
-        }
-
-        //Curl
-        if(gamepad2.right_bumper){
-            motorLCurl.setPower(-0.5);
-            motorRCurl.setPower(-0.5);
-        }else{
-            motorLCurl.setPower(0);
-            motorRCurl.setPower(0);
-        }
-
-        //Servo Foundation
-        if(gamepad2.y && foundationreset){
-            foundationtoggle = !foundationtoggle;
-            foundationreset = false;
-        }
-
-        if(!gamepad2.y){
-            foundationreset = true;
-        }
-        if(!foundationtoggle){
-            servoFoundation.setPosition(90);
-        }else{
-            servoFoundation.setPosition(0);
-        }
-
-        //Servo Loaf
-        if(gamepad2.x && loafreset){
-            loaftoggle = !loaftoggle;
-            loafreset = false;
-        }
-
-        if(!gamepad2.x){
-            loafreset = true;
-        }
-        if(!loaftoggle){
-            servoLoaf.setPosition(90);
-        }else{
-            servoLoaf.setPosition(0);
-        }
-
 
         //BRIDGE RESET
         if(gamepad2.b){
@@ -185,76 +143,67 @@ public class TeleopController extends Controller {
             foundationtoggle = false;
         }
 
-        //DPAD TESTING
+        //VERTICAL PULLEY
+        if(gamepad2.left_trigger >= 0.5){
+            verticalpulley1.setPower(-1);
+            verticalpulley2.setPower(-1);
+        } else {
+            verticalpulley1.setPower(0);
+            verticalpulley2.setPower(0);
+        }
+
+        if(gamepad2.right_trigger >= 0.5){
+            verticalpulley1.setPower(1);
+            verticalpulley2.setPower(1);
+        } else {
+            verticalpulley1.setPower(0);
+            verticalpulley2.setPower(0);
+        }
+
+        //SUCC
+        if(gamepad2.a){
+            succ.setPower(1);
+        } else {
+            succ.setPower(0);
+        }
+
+        if(gamepad2.b){
+            succ.setPower(-1);
+        } else {
+            succ.setPower(0);
+        }
+
+        //HORIZONTAL EXTENDER
+        if(gamepad2.left_bumper){
+            horizontalextender.setPower(-1);
+        } else {
+            horizontalextender.setPower(0);
+        }
+
+        if(gamepad2.right_bumper){
+            horizontalextender.setPower(1);
+        } else {
+            horizontalextender.setPower(0);
+        }
+
         if(gamepad1.dpad_up){
             drive.setPowerOne(1);
         } else {
             drive.setPowerOne(0);
         }
-
         if(gamepad1.dpad_left){
             drive.setPowerTwo(1);
         } else {
             drive.setPowerTwo(0);
         }
-
         if(gamepad1.dpad_right){
             drive.setPowerThree(1);
         } else {
             drive.setPowerThree(0);
         }
-
         if(gamepad1.dpad_down){
             drive.setPowerFour(1);
         } else {
-            drive.setPowerFour(0);
-        }
-
-        //Spit out
-        if(gamepad2.left_trigger > 0 && gamepad2.left_trigger < 0.75) {
-            motorLSuck.setPower(gamepad2.left_trigger);
-            motorRSuck.setPower(-1 * gamepad2.left_trigger);
-        } else if(gamepad2.left_trigger >= 0.75) {
-            motorLSuck.setPower(0.75);
-            motorRSuck.setPower(-0.75);
-        } else {
-            motorLSuck.setPower(0);
-            motorRSuck.setPower(0);
-        }
-
-        //Suck in
-        if(gamepad2.right_trigger > 0) {
-            motorLSuck.setPower(-1 * gamepad2.right_trigger);
-            motorRSuck.setPower(gamepad2.right_trigger);
-        } else {
-            motorLSuck.setPower(0);
-            motorRSuck.setPower(0);
-        }
-
-        //STRAFE LEFT
-        if(gamepad1.dpad_left){
-            drive.setPowerOne(1);
-            drive.setPowerTwo(-1);
-            drive.setPowerThree(1);
-            drive.setPowerFour(-1);
-        } else {
-            drive.setPowerOne(0);
-            drive.setPowerTwo(0);
-            drive.setPowerThree(0);
-            drive.setPowerFour(0);
-        }
-
-
-        //STRAFE RIGHT
-        if(gamepad1.dpad_left){
-            drive.setPowerOne(-1);
-            drive.setPowerTwo(1);
-            drive.setPowerThree(-1);
-            drive.setPowerFour(1);
-        } else {
-            drive.setPowerOne(0);
-            drive.setPowerTwo(0);
-            drive.setPowerThree(0);
             drive.setPowerFour(0);
         }
     }

@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\Users\\BHHS Robotics Team\\Desktop\\Git\\robohawks19-20\\TeamCode\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v11\\values-v11.xml",
+            "outputFile": "C:\\Users\\BHHS Robotics Team\\Desktop\\SkyStone-master\\TeamCode\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v11\\values-v11.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\BHHS Robotics Team\\.gradle\\caches\\transforms-1\\files-1.1\\RobotCore-release.aar\\2ab709c1571d2e49e3c01202fc265392\\res\\values-v11\\values-v11.xml",
+                    "source": "C:\\Users\\BHHS Robotics Team\\.gradle\\caches\\transforms-2\\files-2.1\\097a158cab1f71735c705e035eeb10d2\\res\\values-v11\\values-v11.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
