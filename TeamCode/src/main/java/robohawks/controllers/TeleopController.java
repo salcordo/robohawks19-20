@@ -16,6 +16,7 @@ public class TeleopController extends Controller {
     HolonomicDriveModule drive;
     Servo servoLoaf;
     Servo servoFoundation;
+    Servo servoBoi;
     DcMotor verticalpulley1;
     DcMotor verticalpulley2;
     DcMotor succ;
@@ -47,6 +48,8 @@ public class TeleopController extends Controller {
         succ = hardwareMap.dcMotor.get("succ");
         horizontalextender = hardwareMap.dcMotor.get("horizontalextender");
         telemetry.addData("encoder", m1.getCurrentPosition());
+        servoBoi = hardwareMap.servo.get("servoBoi");
+
     }
 
     @Override
@@ -114,8 +117,12 @@ public class TeleopController extends Controller {
             drive.setPowerFour(0);
         }
 
-        if(gamepad1.a){
-            telemetry.update();
+        if(gamepad2.x){
+            servoBoi.setPosition(0);
+        }
+
+        if(gamepad2.y){
+            servoBoi.setPosition(180);
         }
 
         //Toggle precision mode for primary driver (Controller 1)
