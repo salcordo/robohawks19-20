@@ -13,8 +13,8 @@ import org.firstinspires.ftc.robotcore.external.navigation.AxesOrder;
 import org.firstinspires.ftc.robotcore.external.navigation.AxesReference;
 import org.firstinspires.ftc.robotcore.external.navigation.Orientation;
 
-@Autonomous(name="ChadTest", group="ChadTest")
-public class ChadTest extends LinearOpMode {
+@Autonomous(name="Chad1FullPathRed", group="ChadTest")
+public class Chad1FullPathRed extends LinearOpMode {
     //
     DcMotor frontleft;
     DcMotor frontright;
@@ -49,28 +49,52 @@ public class ChadTest extends LinearOpMode {
 
         //
         waitForStartify();
-        //
-        moveToPosition(24,0.5);
-        //
-        turnWithGyro(81,-0.5);
-        //
-        moveToPosition(9,0.5);
-        //
-        sleep(1000);
-        moveToPosition(40,0.5);
-        //
-        moveToPosition(-65,0.5);
-        //
-        sleep(1000);
-        moveToPosition(65,0.5);
-        //
-        moveToPosition(-49,0.5);
-        //
-        sleep(1000);
-        moveToPosition(49,0.5);
-        //
 
-
+        //
+        moveToPosition(24, 0.8);
+        //
+        turnWithGyro(90, -0.8);
+        //
+        moveToPosition(14.4, 0.8);
+        //
+        sleep(500); //Stops at brick
+        //
+        moveToPosition(31.6, 0.8);
+        //
+        moveToPosition(-54, 0.8);
+        //
+        sleep(500); //Stops at brick
+        //
+        moveToPosition(53.4, 0.8);
+        //
+        moveToPosition(-35.8, 0.8);
+        //
+        sleep(500); //Stops at brick
+        //
+        moveToPosition(35.8, 0.8);
+        //
+        moveToPosition(-45, 0.8);
+        //
+        sleep(500); //Stops at brick
+        //
+        moveToPosition(46, 0.8);
+        //
+        moveToPosition(-61.4, 0.8);
+        //
+        sleep(500); //Stops at brick
+        //
+        moveToPosition(60.6, 0.8);
+        //
+        sleep(500); //Stops at brick
+        //
+        moveToPosition(-65.6, 0.8);
+        //
+        moveToPosition(65.6, 0.8);
+        //
+        sleep(500); //Stops at brick
+        //
+        moveToPosition(-15, 0.8);
+        //
     }
     //
     /*

@@ -40,14 +40,12 @@ public class TeleopController extends Controller {
     @Override
     public void init() {
         drive = new HolonomicDriveModule(hardwareMap);
-        m1 = hardwareMap.dcMotor.get("m1");
         servoFoundation = hardwareMap.servo.get("servoFoundation");
         servoLoaf = hardwareMap.servo.get("servoLoaf");
         verticalpulley1 = hardwareMap.dcMotor.get("vpulley1");
         verticalpulley2 = hardwareMap.dcMotor.get("vpulley2");
         succ = hardwareMap.dcMotor.get("succ");
         horizontalextender = hardwareMap.dcMotor.get("horizontalextender");
-        telemetry.addData("encoder", m1.getCurrentPosition());
         servoBoi = hardwareMap.servo.get("servoBoi");
 
     }
@@ -71,9 +69,9 @@ public class TeleopController extends Controller {
     //Right Bumper: Horizontal Extender
 
         // Drive
-        float gamepad1LeftY = gamepad1.left_stick_y * precisionya;
+        float gamepad1LeftY = -gamepad1.left_stick_y * precisionya;
         float gamepad1LeftX = -gamepad1.left_stick_x * precisionxa;
-        float gamepad1RightX = gamepad1.right_stick_x * precisionxa;
+        float gamepad1RightX = -gamepad1.right_stick_x * precisionxa;
 
         // Holonomic Formulas
         float FrontLeft = -gamepad1LeftY - gamepad1LeftX - gamepad1RightX;
@@ -90,8 +88,8 @@ public class TeleopController extends Controller {
         // Write the values to the motors
         drive.setPowerOne(FrontRight);
         drive.setPowerTwo(FrontLeft);
-        drive.setPowerThree(BackLeft);
-        drive.setPowerFour(BackRight);
+        drive.setPowerThree(-BackLeft);
+        drive.setPowerFour(-BackRight);
 
 
         //EXAMPLE BUTTON
@@ -191,27 +189,6 @@ public class TeleopController extends Controller {
             horizontalextender.setPower(1);
         } else {
             horizontalextender.setPower(0);
-        }
-
-        if(gamepad1.dpad_up){
-            drive.setPowerOne(1);
-        } else {
-            drive.setPowerOne(0);
-        }
-        if(gamepad1.dpad_left){
-            drive.setPowerTwo(1);
-        } else {
-            drive.setPowerTwo(0);
-        }
-        if(gamepad1.dpad_right){
-            drive.setPowerThree(1);
-        } else {
-            drive.setPowerThree(0);
-        }
-        if(gamepad1.dpad_down){
-            drive.setPowerFour(1);
-        } else {
-            drive.setPowerFour(0);
         }
     }
 }

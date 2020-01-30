@@ -88,39 +88,7 @@ public class EncoderTesting extends LinearOpMode {
             motor3.setPower(0);
             motor4.setPower(0);
 
-            //STOP AND RESET MOTOR ENCODERS
-            motor1.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
-            motor2.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
-            motor3.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
-            motor4.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
-
-            //SET TARGET POSITION TO ONE FULL ROTATION
-            motor1.setTargetPosition(-1120);
-            motor2.setTargetPosition(-1120);
-            motor3.setTargetPosition(-1120);
-            motor4.setTargetPosition(-1120);
-
-            //SET MOTORS TO RUN TO POSITION
-            motor1.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-            motor2.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-            motor3.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-            motor4.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-
-            motor1.setPower(0.5);
-            motor2.setPower(0.5);
-            motor3.setPower(0.5);
-            motor4.setPower(0.5);
-
-            //WAIT UNTIL MOTORS ARE NO LONGER BUSY
-            while(motor1.isBusy() && motor2.isBusy() && motor3.isBusy() && motor4.isBusy() &&opModeIsActive()) {
-                //Loop body can be empty
-            }
-
-            //STOP MOTORS
-            motor1.setPower(0);
-            motor2.setPower(0);
-            motor3.setPower(0);
-            motor4.setPower(0);
+            sleep(5000);
         }
     }
 }

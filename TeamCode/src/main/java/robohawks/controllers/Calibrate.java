@@ -17,16 +17,16 @@ public class Calibrate extends LinearOpMode {
     Integer gearratio = 40;
     Double diameter = 4.125;
     Double cpi = (cpr * gearratio) / (Math.PI * diameter); //counts per inch -> counts per rotation / circumference
-    Double bias = 0.8;//adjust until your robot goes 20 inches
+    Double bias = 0.702;//adjust until your robot goes 20 inches
     //
     Double conversion = cpi * bias;
     //
     public void runOpMode() {
         //
-        frontleft = hardwareMap.dcMotor.get("m4");
-        frontright = hardwareMap.dcMotor.get("m3");
-        backleft = hardwareMap.dcMotor.get("m1");
-        backright = hardwareMap.dcMotor.get("m2");
+        frontleft = hardwareMap.dcMotor.get("m0");
+        frontright = hardwareMap.dcMotor.get("m1");
+        backleft = hardwareMap.dcMotor.get("m2");
+        backright = hardwareMap.dcMotor.get("m3");
         frontright.setDirection(DcMotorSimple.Direction.REVERSE);//If your robot goes backward, switch this from right to left
         backright.setDirection(DcMotorSimple.Direction.REVERSE);//If your robot goes backward, switch this from right to left
         //
@@ -62,6 +62,7 @@ public class Calibrate extends LinearOpMode {
             //
             while (frontleft.isBusy() && frontright.isBusy() && backleft.isBusy() && backright.isBusy()) {
             }
+
             frontleft.setPower(0);
             frontright.setPower(0);
             backleft.setPower(0);
