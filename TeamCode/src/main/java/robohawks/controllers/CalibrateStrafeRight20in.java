@@ -13,7 +13,7 @@ import org.firstinspires.ftc.robotcore.external.navigation.AxesOrder;
 import org.firstinspires.ftc.robotcore.external.navigation.AxesReference;
 import org.firstinspires.ftc.robotcore.external.navigation.Orientation;
 
-@Autonomous(name="CalibrateForward20in", group="ChadTest")
+@Autonomous(name="CalibrateStrafeRight20in", group="ChadTest")
 public class CalibrateStrafeRight20in extends LinearOpMode {
     //
     DcMotor frontleft;

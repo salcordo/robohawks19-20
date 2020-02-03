@@ -78,7 +78,7 @@ public class VuforiaNavigationTest extends LinearOpMode {
      * Once you've obtained a license key, copy the string from the Vuforia web site
      * and paste it in to your code on the next line, between the double quotes.
      */
-    private static final String VUFORIA_KEY = "AYwG39//////AAABmUWlzi8FCUAtlfkPEOcymgNiXqcEjwtTA47wJtEpLEIRA5x8zjycsIni/ha1376bp2jRAd7+WTWd9cZm+R1u9Yew+r5XXw+jwYNxFQeyLJh+xwXxaupmfLI/XDbo6KkGVbSncae/OIWzwRaEOreULZc7ow08NxpyBgYrAf0ri5d4AIJggSlQKMwhfTC1IEtrrJ9CxuikYZSEY3tSqdg9EeP+WgoqnTyE1kFiZeGUP0xMUMOU8FqiSD2S7Jg10upcVn5M5uO0Swohvjyov1YlAws7KxJAeZJUavEa+E427U7ti6ez1jfGxXSfqd3dNH01yDUxSaG9cP8YPlZldSjqsBrP7pNzM0L/TC9bhetU00Qd";
+    private static final String VUFORIA_KEY = "ARnaIQf/////AAABme15Vg3hYkl7uDBP43rsTM+F4cGsVBYDf+gwbz3YMpwzDHgKEW59CCmONcbFR5Bc+0x/QLDXN+r5ovFph7Ch8bf25uhPwIgYY5PX6tcajyf6eQ+ib9snMf1JQL/lUmKC2kWgHuMFFjkC9Sp6ymPZnjtRYAc63ZwCxv1RsH1vBzKr3FycysTXo/bjhjAQ7R/tbClHjaaXrP3EQnn9JY+9Zt3v0Yskm+kKhWOQM8f2iaQ3iKySm7rZysFlEWmkNqPHHE1OMq+iIA8HKqPDjn+9OYRTeTQf55gD+SF0ZmrvBvVfVX+EeyZEdw6Mso09kfTVpeOJeCUphTXV9RekuHWh/ZQwxEyAiirrIG5BcvJ10c2a";
 
     // Since ImageTarget trackables use mm to specifiy their dimensions, we must use mm for all the physical dimension.
     // We will define some constants and conversions here

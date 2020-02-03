@@ -51,11 +51,11 @@ public class Chad1FullPathRed extends LinearOpMode {
         waitForStartify();
 
         //
-        moveToPosition(24, 0.8);
+        moveToPosition(22, 0.8);
         //
-        turnWithGyro(90, -0.8);
+        turnWithGyro(81, -0.8);
         //
-        moveToPosition(14.4, 0.8);
+        moveToPosition(9, 0.8);
         //
         sleep(500); //Stops at brick
         //
