@@ -29,6 +29,7 @@
 
 package robohawks.controllers;
 
+import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
@@ -84,7 +85,7 @@ import static org.firstinspires.ftc.robotcore.external.navigation.VuforiaLocaliz
  */
 
 
-@TeleOp(name="SKYSTONE Vuforia Nav", group ="Concept")
+@Autonomous(name="VisionTest", group ="Concept")
 //@Disabled
 public class VisionTest extends LinearOpMode {
 
@@ -364,7 +365,7 @@ public class VisionTest extends LinearOpMode {
             }
 
             else {
-                telemetry.addData("Visible Target", "none");
+                telemetry.addData( "Visible Target", "none");
                 position = 0000000;
             }
 

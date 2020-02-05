@@ -14,9 +14,10 @@ public class TeleopController extends Controller {
 
     //HARDWARE
     HolonomicDriveModule drive;
-    Servo servoLoaf;
-    Servo servoFoundation;
-    Servo servoBoi;
+    Servo leftLoaf;
+    Servo rightLoaf;
+    CRServo succLeft;
+    CRServo succRight;
     DcMotor verticalpulley1;
     DcMotor verticalpulley2;
     DcMotor succ;
@@ -40,13 +41,14 @@ public class TeleopController extends Controller {
     @Override
     public void init() {
         drive = new HolonomicDriveModule(hardwareMap);
-        servoFoundation = hardwareMap.servo.get("servoFoundation");
-        servoLoaf = hardwareMap.servo.get("servoLoaf");
         verticalpulley1 = hardwareMap.dcMotor.get("vpulley1");
         verticalpulley2 = hardwareMap.dcMotor.get("vpulley2");
         succ = hardwareMap.dcMotor.get("succ");
         horizontalextender = hardwareMap.dcMotor.get("horizontalextender");
-        servoBoi = hardwareMap.servo.get("servoBoi");
+        rightLoaf = hardwareMap.servo.get("rightLoaf");
+        leftLoaf = hardwareMap.servo.get("leftLoaf");
+        succLeft = hardwareMap.crservo.get("succLeft");
+        succRight = hardwareMap.crservo.get("succRight");
 
     }
 
@@ -115,13 +117,6 @@ public class TeleopController extends Controller {
             drive.setPowerFour(0);
         }
 
-        if(gamepad2.x){
-            servoBoi.setPosition(0);
-        }
-
-        if(gamepad2.y){
-            servoBoi.setPosition(180);
-        }
 
         //Toggle precision mode for primary driver (Controller 1)
         if(gamepad1.b && precisionreset){
@@ -167,16 +162,11 @@ public class TeleopController extends Controller {
 
         //SUCC
         if(gamepad2.a){
-            succ.setPower(1);
-        } else {
-            succ.setPower(0);
-        }
-
-        if(gamepad2.b){
             succ.setPower(-1);
         } else {
             succ.setPower(0);
         }
+
 
         //HORIZONTAL EXTENDER
         if(gamepad2.left_bumper){
@@ -189,6 +179,35 @@ public class TeleopController extends Controller {
             horizontalextender.setPower(1);
         } else {
             horizontalextender.setPower(0);
+        }
+
+        //BRIDGE RESET
+        if(gamepad2.x){
+            leftLoaf.setPosition(45);
+            rightLoaf.setPosition(45);
+        }
+
+        //LEFT LOAF
+        //if(gamepad2.x){
+        //    leftLoaf.setPosition(0);
+        //} else {
+        //    leftLoaf.setPosition(45);
+        //}
+
+        //RIGHT LOAF
+        //if(gamepad2.y){
+        //    rightLoaf.setPosition(45);
+        //} else {
+        //    rightLoaf.setPosition(0);
+        //}
+
+        //OPEN SUCC
+        if(gamepad2.b){
+            succLeft.setPower(0.2);
+            succRight.setPower(0.2);
+        } else {
+            succLeft.setPower(0);
+            succRight.setPower(0);
         }
     }
 }

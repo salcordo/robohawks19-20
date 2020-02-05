@@ -53,39 +53,38 @@ public class Chad1FullPathRed extends LinearOpMode {
         //
         moveToPosition(22, 0.8);
         //
-        turnWithGyro(81, -0.8);
+        sleep(200);
+        turnWithGyro(75, -0.8);
         //
-        moveToPosition(9, 0.8);
+        sleep(500); //Stops at brick skystone
         //
-        sleep(500); //Stops at brick
+        moveToPosition(40.6, 0.8);
+        //
+        moveToPosition(-63, 0.8);
+        //
+        sleep(500); //Stops at brick skystone
+        //
+        moveToPosition(63, 0.8);
+        //
+        moveToPosition(-31.6, 0.8);
+        //
+        sleep(500); //Stops at brick regular
         //
         moveToPosition(31.6, 0.8);
         //
-        moveToPosition(-54, 0.8);
+        moveToPosition(-49.6, 0.8);
         //
-        sleep(500); //Stops at brick
+        sleep(500); //Stops at brick regular
         //
-        moveToPosition(53.4, 0.8);
+        moveToPosition(49.6, 0.8);
         //
-        moveToPosition(-35.8, 0.8);
+        moveToPosition(-58.6, 0.8);
         //
-        sleep(500); //Stops at brick
+        sleep(500); //Stops at brick regular
         //
-        moveToPosition(35.8, 0.8);
+        moveToPosition(58.6, 0.8);
         //
-        moveToPosition(-45, 0.8);
-        //
-        sleep(500); //Stops at brick
-        //
-        moveToPosition(46, 0.8);
-        //
-        moveToPosition(-61.4, 0.8);
-        //
-        sleep(500); //Stops at brick
-        //
-        moveToPosition(60.6, 0.8);
-        //
-        sleep(500); //Stops at brick
+        sleep(500); //Stops at brick regular
         //
         moveToPosition(-65.6, 0.8);
         //
@@ -93,7 +92,7 @@ public class Chad1FullPathRed extends LinearOpMode {
         //
         sleep(500); //Stops at brick
         //
-        moveToPosition(-15, 0.8);
+        moveToPosition(-15, 0.8);  //park under bridge
         //
     }
     //

@@ -6,6 +6,7 @@ import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
+import com.qualcomm.robotcore.hardware.Servo;
 
 import org.firstinspires.ftc.robotcore.external.navigation.Acceleration;
 import org.firstinspires.ftc.robotcore.external.navigation.AngleUnit;
@@ -20,6 +21,8 @@ public class ChadTest extends LinearOpMode {
     DcMotor frontright;
     DcMotor backleft;
     DcMotor backright;
+    Servo leftLoaf;
+    Servo rightLoaf;
     //28 * 20 / (2ppi * 4.125)
     Double width = 16.0; //inches
     Integer cpr = 28; //counts per rotation
@@ -46,28 +49,40 @@ public class ChadTest extends LinearOpMode {
         backright = hardwareMap.dcMotor.get("m3");
         frontright.setDirection(DcMotorSimple.Direction.REVERSE);//If your robot goes backward, switch this from right to left
         backright.setDirection(DcMotorSimple.Direction.REVERSE);//If your robot goes backward, switch this from right to left
+        rightLoaf = hardwareMap.servo.get("rightLoaf");
+        leftLoaf = hardwareMap.servo.get("leftLoaf");
 
         //
         waitForStartify();
         //
-        moveToPosition(24,0.5);
+        moveToPosition(20,0.8);
         //
-        turnWithGyro(81,-0.5);
+        sleep(300);
+        turnWithGyro(88,-0.3);
         //
-        moveToPosition(9,0.5);
+        moveToPosition(12.7,0.4);
         //
-        sleep(1000);
-        moveToPosition(40,0.5);
+        strafeToPosition(-5,0.4);
+        rightLoaf.setPosition(45);
+        sleep(500);
+        strafeToPosition(8,0.4);
+        moveToPosition(38,0.5);
         //
-        moveToPosition(-65,0.5);
+        sleep(200);
+        rightLoaf.setPosition(0);
+        sleep(200);
+        moveToPosition(-60,0.8);
         //
-        sleep(1000);
-        moveToPosition(65,0.5);
+        strafeToPosition(-10,0.4);
+        rightLoaf.setPosition(45);
+        sleep(500);
+        strafeToPosition(10,0.4);
+        moveToPosition(65,0.8);
         //
         moveToPosition(-49,0.5);
         //
         sleep(1000);
-        moveToPosition(49,0.5);
+        moveToPosition(49,1);
         //
 
 
@@ -242,10 +257,10 @@ public class ChadTest extends LinearOpMode {
         backleft.setMode(DcMotor.RunMode.RUN_TO_POSITION);
         backright.setMode(DcMotor.RunMode.RUN_TO_POSITION);
         //
-        frontleft.setPower(-speed);
-        backleft.setPower(-speed);
-        frontright.setPower(-speed);
-        backright.setPower(-speed);
+        frontleft.setPower(speed);
+        backleft.setPower(speed);
+        frontright.setPower(speed);
+        backright.setPower(speed);
         //
         while (frontleft.isBusy() && frontright.isBusy() && backleft.isBusy() && backright.isBusy()){}
         frontright.setPower(0);
