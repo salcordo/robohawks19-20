@@ -15,8 +15,8 @@ import org.firstinspires.ftc.robotcore.external.navigation.AxesOrder;
 import org.firstinspires.ftc.robotcore.external.navigation.AxesReference;
 import org.firstinspires.ftc.robotcore.external.navigation.Orientation;
 
-@Autonomous(name="ChadTest", group="ChadTest")
-public class ChadTest extends LinearOpMode {
+@Autonomous(name="ChadTestBlue", group="ChadTest")
+public class ChadTestBlue extends LinearOpMode {
     //
     DcMotor frontleft;
     DcMotor frontright;
@@ -86,7 +86,7 @@ public class ChadTest extends LinearOpMode {
         rightLoaf.setPosition(0);
         sleep(500);
         //[CHANGES]Move to 2nd brick
-        moveToPosition(-64.5 - brickshift,0.3);
+        moveToPosition(-63 - brickshift,0.3);
         //
         //Strafe towards blocks
         strafeToPosition(-9.5,0.4);

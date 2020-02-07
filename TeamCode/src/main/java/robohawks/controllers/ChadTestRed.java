@@ -3,10 +3,10 @@ package robohawks.controllers;
 import com.qualcomm.hardware.bosch.BNO055IMU;
 import com.qualcomm.hardware.bosch.JustLoggingAccelerationIntegrator;
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
-import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
+import com.qualcomm.robotcore.hardware.Servo;
 
 import org.firstinspires.ftc.robotcore.external.navigation.Acceleration;
 import org.firstinspires.ftc.robotcore.external.navigation.AngleUnit;
@@ -14,14 +14,15 @@ import org.firstinspires.ftc.robotcore.external.navigation.AxesOrder;
 import org.firstinspires.ftc.robotcore.external.navigation.AxesReference;
 import org.firstinspires.ftc.robotcore.external.navigation.Orientation;
 
-@Autonomous(name="CalibrateTurnRight90degGyro", group="ChadTest")
-@Disabled
-public class CalibrateTurnRight90degGyro extends LinearOpMode {
+@Autonomous(name="ChadTestRed", group="ChadTest")
+public class ChadTestRed extends LinearOpMode {
     //
     DcMotor frontleft;
     DcMotor frontright;
     DcMotor backleft;
     DcMotor backright;
+    Servo leftLoaf;
+    Servo rightLoaf;
     //28 * 20 / (2ppi * 4.125)
     Double width = 16.0; //inches
     Integer cpr = 28; //counts per rotation
@@ -38,6 +39,11 @@ public class CalibrateTurnRight90degGyro extends LinearOpMode {
     Orientation angles;
     Acceleration gravity;
     //
+    float brickshift = 16;
+    //float jonathan;
+    //float joseph;
+    //float jotaro;
+    //float josuke;
     public void runOpMode(){
         //
         initGyro();
@@ -48,12 +54,57 @@ public class CalibrateTurnRight90degGyro extends LinearOpMode {
         backright = hardwareMap.dcMotor.get("m3");
         frontright.setDirection(DcMotorSimple.Direction.REVERSE);//If your robot goes backward, switch this from right to left
         backright.setDirection(DcMotorSimple.Direction.REVERSE);//If your robot goes backward, switch this from right to left
+        rightLoaf = hardwareMap.servo.get("rightLoaf");
+        leftLoaf = hardwareMap.servo.get("leftLoaf");
 
         //
         waitForStartify();
         //
-        turnWithGyro(90,0.5);
+        //Move forward to blocks
+        moveToPosition(22,0.2);
         //
+        sleep(300);
+        //Turn CW
+        turnWithGyro(88,0.3);
+        //
+        //[CHANGES]Move to First Brick
+        moveToPosition(6.15 - brickshift,0.4);
+        //
+        //Strafe towards blocks
+        strafeToPosition(-6,0.4);
+        //Lower loaf
+        leftLoaf.setPosition(45);
+        sleep(500);
+        //Strafe away from blocks
+        strafeToPosition(8,0.4);
+        //[CHANGES]move across bridge
+        moveToPosition(42 + brickshift,0.2);
+        //
+        sleep(200);
+        //Raise loaf
+        leftLoaf.setPosition(0);
+        sleep(500);
+        //[CHANGES]Move to 2nd brick
+        moveToPosition(-63 - brickshift,0.3);
+        //
+        //Strafe towards blocks
+        strafeToPosition(-9.5,0.4);
+        //Lower loaf
+        leftLoaf.setPosition(45);
+        sleep(500);
+        //Strafe away from blocks
+        strafeToPosition(8,0.4);
+        //[CHANGES]Move across bridge
+        moveToPosition(64 + brickshift,0.4);
+        //Raise Loaf
+        leftLoaf.setPosition(0);
+        sleep(300);
+        //
+        //Park under bridge
+        moveToPosition(-17,0.5);
+        //
+
+
     }
     //
     /*
@@ -225,10 +276,10 @@ public class CalibrateTurnRight90degGyro extends LinearOpMode {
         backleft.setMode(DcMotor.RunMode.RUN_TO_POSITION);
         backright.setMode(DcMotor.RunMode.RUN_TO_POSITION);
         //
-        frontleft.setPower(-speed);
-        backleft.setPower(-speed);
-        frontright.setPower(-speed);
-        backright.setPower(-speed);
+        frontleft.setPower(speed);
+        backleft.setPower(speed);
+        frontright.setPower(speed);
+        backright.setPower(speed);
         //
         while (frontleft.isBusy() && frontright.isBusy() && backleft.isBusy() && backright.isBusy()){}
         frontright.setPower(0);

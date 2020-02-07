@@ -315,17 +315,17 @@ public class HybridChad extends LinearOpMode {
 
                 if((translation.get(1) / mmPerInch >= -10) && (translation.get(1) / mmPerInch <= -3.5)){
                     position = 111111;
-                    //brickshift = 0;
+                    brickshift = 0;
                 }
 
                 if((translation.get(1) / mmPerInch > -3.5) && (translation.get(1) / mmPerInch <= 3.5)){
                     position = 222222;
-                    //brickshift = 8;
+                    brickshift = 8;
                 }
 
                 if((translation.get(1) / mmPerInch > 3.5) && (translation.get(1) / mmPerInch <= 10 )){
                     position = 333333;
-                    //brickshift = 16;
+                    brickshift = 16;
                 }
                 // express the rotation of the robot in degrees.
                 Orientation rotation = Orientation.getOrientation(lastLocation, EXTRINSIC, XYZ, DEGREES);
@@ -335,12 +335,56 @@ public class HybridChad extends LinearOpMode {
             else {
                 telemetry.addData( "Visible Target", "none");
                 position = 0000000;
+                brickshift = 16;
             }
 
             telemetry.addData("Position:", position);
             telemetry.update();
         }
         targetsSkyStone.deactivate();
+        //Move forward to blocks
+        moveToPosition(7,0.2);
+        //
+        sleep(300);
+        //Turn CC
+        turnWithGyro(88,-0.3);
+        //
+        //[CHANGES]Move to First Brick
+        moveToPosition(18.15 - brickshift,0.4);
+        //
+        //Strafe towards blocks
+        strafeToPosition(-6,0.4);
+        //Lower loaf
+        rightLoaf.setPosition(45);
+        sleep(500);
+        //Strafe away from blocks
+        strafeToPosition(8,0.4);
+        //[CHANGES]move across bridge
+        moveToPosition(42 + brickshift,0.2);
+        //
+        sleep(200);
+        //Raise loaf
+        rightLoaf.setPosition(0);
+        sleep(500);
+        //[CHANGES]Move to 2nd brick
+        moveToPosition(-63 - brickshift,0.3);
+        //
+        //Strafe towards blocks
+        strafeToPosition(-9.5,0.4);
+        //Lower loaf
+        rightLoaf.setPosition(45);
+        sleep(500);
+        //Strafe away from blocks
+        strafeToPosition(8,0.4);
+        //[CHANGES]Move across bridge
+        moveToPosition(64 + brickshift,0.4);
+        //Raise Loaf
+        rightLoaf.setPosition(0);
+        sleep(300);
+        //
+        //Park under bridge
+        moveToPosition(-17,0.5);
+        //
     }
     //
     /*

@@ -1,5 +1,6 @@
 package robohawks.controllers;
 
+import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.HardwareMap;
@@ -9,6 +10,7 @@ import robohawks.controllers.old.Controller;
 import robohawks.modules.base.HolonomicDriveModule;
 
 @TeleOp(name = "TeleopControllerTeaching", group = "Teleop")
+@Disabled
 public class TeleopControllerTeaching extends Controller {
     //HARDWARE
     HolonomicDriveModule drive;
