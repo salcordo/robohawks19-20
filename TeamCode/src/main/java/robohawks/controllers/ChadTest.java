@@ -8,6 +8,7 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.hardware.Servo;
 
+
 import org.firstinspires.ftc.robotcore.external.navigation.Acceleration;
 import org.firstinspires.ftc.robotcore.external.navigation.AngleUnit;
 import org.firstinspires.ftc.robotcore.external.navigation.AxesOrder;
@@ -39,6 +40,11 @@ public class ChadTest extends LinearOpMode {
     Orientation angles;
     Acceleration gravity;
     //
+    float brickshift = 16;
+    //float jonathan;
+    //float joseph;
+    //float jotaro;
+    //float josuke;
     public void runOpMode(){
         //
         initGyro();
@@ -55,34 +61,48 @@ public class ChadTest extends LinearOpMode {
         //
         waitForStartify();
         //
-        moveToPosition(20,0.8);
+        //Move forward to blocks
+        moveToPosition(22,0.2);
         //
         sleep(300);
+        //Turn CC
         turnWithGyro(88,-0.3);
         //
-        moveToPosition(12.7,0.4);
+        //[CHANGES]Move to First Brick
+        moveToPosition(18.15 - brickshift,0.4);
         //
-        strafeToPosition(-5,0.4);
+        //Strafe towards blocks
+        strafeToPosition(-6,0.4);
+        //Lower loaf
         rightLoaf.setPosition(45);
         sleep(500);
+        //Strafe away from blocks
         strafeToPosition(8,0.4);
-        moveToPosition(38,0.5);
+        //[CHANGES]move across bridge
+        moveToPosition(42 + brickshift,0.2);
         //
         sleep(200);
+        //Raise loaf
         rightLoaf.setPosition(0);
-        sleep(200);
-        moveToPosition(-60,0.8);
+        sleep(500);
+        //[CHANGES]Move to 2nd brick
+        moveToPosition(-64.5 - brickshift,0.3);
         //
-        strafeToPosition(-10,0.4);
+        //Strafe towards blocks
+        strafeToPosition(-9.5,0.4);
+        //Lower loaf
         rightLoaf.setPosition(45);
         sleep(500);
-        strafeToPosition(10,0.4);
-        moveToPosition(65,0.8);
+        //Strafe away from blocks
+        strafeToPosition(8,0.4);
+        //[CHANGES]Move across bridge
+        moveToPosition(64 + brickshift,0.4);
+        //Raise Loaf
+        rightLoaf.setPosition(0);
+        sleep(300);
         //
-        moveToPosition(-49,0.5);
-        //
-        sleep(1000);
-        moveToPosition(49,1);
+        //Park under bridge
+        moveToPosition(-17,0.5);
         //
 
 

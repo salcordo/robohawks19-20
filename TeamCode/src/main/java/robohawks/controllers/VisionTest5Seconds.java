@@ -30,13 +30,9 @@
 package robohawks.controllers;
 
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
-import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
-import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
-import com.vuforia.CameraDevice;
 
 import org.firstinspires.ftc.robotcore.external.ClassFactory;
-import org.firstinspires.ftc.robotcore.external.hardware.camera.WebcamName;
 import org.firstinspires.ftc.robotcore.external.matrices.OpenGLMatrix;
 import org.firstinspires.ftc.robotcore.external.matrices.VectorF;
 import org.firstinspires.ftc.robotcore.external.navigation.Orientation;
@@ -85,9 +81,9 @@ import static org.firstinspires.ftc.robotcore.external.navigation.VuforiaLocaliz
  */
 
 
-@Autonomous(name="VisionTest", group ="Concept")
+@Autonomous(name="VisionTest5Seconds", group ="Concept")
 //@Disabled
-public class VisionTest extends LinearOpMode {
+public class VisionTest5Seconds extends LinearOpMode {
 
     // IMPORTANT:  For Phone Camera, set 1) the camera source and 2) the orientation, based on how your phone is mounted:
     // 1) Camera Source.  Valid choices are:  BACK (behind screen) or FRONT (selfie side)
@@ -323,7 +319,10 @@ public class VisionTest extends LinearOpMode {
         // Tap the preview window to receive a fresh image.
 
         targetsSkyStone.activate();
-        while (!isStopRequested()) {
+        waitForStart();
+        long t = System.currentTimeMillis();
+        long end = t + 5000;
+        while (System.currentTimeMillis()< end) {
             // check all the trackable targets to see which one (if any) is visible.
             targetVisible = false;
             for (VuforiaTrackable trackable : allTrackables) {
@@ -348,15 +347,15 @@ public class VisionTest extends LinearOpMode {
                 telemetry.addData("Pos (in)", "{X, Y, Z} = %.1f, %.1f, %.1f",
                         translation.get(0) / mmPerInch, translation.get(1) / mmPerInch, translation.get(2) / mmPerInch);
 
-                if((translation.get(1) / mmPerInch >= -10) && (translation.get(1) / mmPerInch <= -3.5)){
+                if((translation.get(1) / mmPerInch >= -8) && (translation.get(1) / mmPerInch <= -3)){
                     position = 111111;
                 }
 
-                if((translation.get(1) / mmPerInch > -3.5) && (translation.get(1) / mmPerInch <= 3.5)){
+                if((translation.get(1) / mmPerInch > -3) && (translation.get(1) / mmPerInch <= 3)){
                     position = 222222;
                 }
 
-                if((translation.get(1) / mmPerInch > 3.5) && (translation.get(1) / mmPerInch <= 10)){
+                if((translation.get(1) / mmPerInch > 3) && (translation.get(1) / mmPerInch <= 8)){
                     position = 333333;
                 }
                 // express the rotation of the robot in degrees.
