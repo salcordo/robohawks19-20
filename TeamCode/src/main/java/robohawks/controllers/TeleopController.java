@@ -119,12 +119,12 @@ public class TeleopController extends Controller {
 
 
         //Toggle precision mode for primary driver (Controller 1)
-        if(gamepad1.b && precisionreset){
+        if(gamepad1.a && precisionreset){
             precisiontoggle = !precisiontoggle;
             precisionreset = false;
         }
 
-        if(!gamepad1.b){
+        if(!gamepad1.a){
             precisionreset = true;
         }
 
@@ -207,28 +207,28 @@ public class TeleopController extends Controller {
         }
 
         //STRAFE
-        if(gamepad1.dpad_left){
-            drive.setPowerOne(-1);
-            drive.setPowerTwo(-1);
-            drive.setPowerThree(1);
-            drive.setPowerFour(1);
-        } else {
-            drive.setPowerOne(0);
-            drive.setPowerTwo(0);
-            drive.setPowerThree(0);
-            drive.setPowerFour(0);
-        }
+        while(gamepad1.x){
+            drive.setPowerOne(-1*precisionxa);
+            drive.setPowerTwo(-1*precisionxa);
+            drive.setPowerThree(1*precisionxa);
+            drive.setPowerFour(1*precisionxa);
+        } //else {
+           // drive.setPowerOne(0);
+            //drive.setPowerTwo(0);
+            //drive.setPowerThree(0);
+            //drive.setPowerFour(0);
+       // }
 
-        if(gamepad1.dpad_right){
-            drive.setPowerOne(1);
-            drive.setPowerTwo(1);
-            drive.setPowerThree(-1);
-            drive.setPowerFour(-1);
-        } else {
-            drive.setPowerOne(0);
-            drive.setPowerTwo(0);
-            drive.setPowerThree(0);
-            drive.setPowerFour(0);
-        }
+        while(gamepad1.b){
+            drive.setPowerOne(1*precisionxa);
+            drive.setPowerTwo(1*precisionxa);
+            drive.setPowerThree(-1*precisionxa);
+            drive.setPowerFour(-1*precisionxa);
+        } //else {
+           // drive.setPowerOne(0);
+           // drive.setPowerTwo(0);
+            //drive.setPowerThree(0);
+            //drive.setPowerFour(0);
+       // }
     }
 }

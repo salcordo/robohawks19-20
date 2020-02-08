@@ -68,7 +68,7 @@ public class ChadTestRed extends LinearOpMode {
         turnWithGyro(88,0.3);
         //
         //[CHANGES]Move to First Brick
-        moveToPosition(brickshift - 2.5,0.4);
+        moveToPosition(brickshift - 11,0.4);
         //
         //Strafe towards blocks
         strafeToPosition(6,0.4);
@@ -78,30 +78,31 @@ public class ChadTestRed extends LinearOpMode {
         //Strafe away from blocks
         strafeToPosition(-8,0.4);
         //[CHANGES]move across bridge
-        moveToPosition(42 + brickshift,0.2);
+        moveToPosition(74 - brickshift,0.2);
         //
         sleep(200);
         //Raise loaf
         leftLoaf.setPosition(45);
         sleep(500);
         //[CHANGES]Move to 2nd brick
-        moveToPosition(-63 - brickshift,0.3);
+        turnWithGyro(2,0.2);
+        moveToPosition(-64 - brickshift,0.3);
         //
         //Strafe towards blocks
-        strafeToPosition(9.5,0.4);
+        strafeToPosition(7,0.4);
         //Lower loaf
         leftLoaf.setPosition(-45);
         sleep(500);
         //Strafe away from blocks
         strafeToPosition(-8,0.4);
         //[CHANGES]Move across bridge
-        moveToPosition(64 + brickshift,0.4);
+        moveToPosition(63 + brickshift,0.4);
         //Raise Loaf
         leftLoaf.setPosition(45);
         sleep(300);
         //
         //Park under bridge
-        moveToPosition(-17,0.5);
+        moveToPosition(-18,0.5);
         //
 
 
