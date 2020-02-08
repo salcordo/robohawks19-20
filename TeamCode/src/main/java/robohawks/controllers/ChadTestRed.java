@@ -39,7 +39,7 @@ public class ChadTestRed extends LinearOpMode {
     Orientation angles;
     Acceleration gravity;
     //
-    float brickshift = 16;
+    float brickshift = 0;
     //float jonathan;
     //float joseph;
     //float jotaro;
@@ -68,7 +68,7 @@ public class ChadTestRed extends LinearOpMode {
         turnWithGyro(88,0.3);
         //
         //[CHANGES]Move to First Brick
-        moveToPosition(brickshift - 11,0.4);
+        moveToPosition(19.5 - brickshift,0.4);
         //
         //Strafe towards blocks
         strafeToPosition(6,0.4);
@@ -78,7 +78,7 @@ public class ChadTestRed extends LinearOpMode {
         //Strafe away from blocks
         strafeToPosition(-8,0.4);
         //[CHANGES]move across bridge
-        moveToPosition(74 - brickshift,0.2);
+        moveToPosition(42 + brickshift,0.2);
         //
         sleep(200);
         //Raise loaf
@@ -86,7 +86,7 @@ public class ChadTestRed extends LinearOpMode {
         sleep(500);
         //[CHANGES]Move to 2nd brick
         turnWithGyro(2,0.2);
-        moveToPosition(-64 - brickshift,0.3);
+        moveToPosition(-65 - brickshift,0.3);
         //
         //Strafe towards blocks
         strafeToPosition(7,0.4);
